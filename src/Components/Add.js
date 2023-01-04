@@ -100,7 +100,7 @@ const uploadImage = async e =>{
 }   
 
 const fetchCategory = async () => {
-  const res = await fetch(`http://18.191.246.31:9000/api/allgetcategory`);
+  const res = await fetch(`https://terakarachi.com/api/allgetcategory`);
 
   const datacategory = await res.json();
   console.log(datacategory);
@@ -121,7 +121,7 @@ useEffect(() => {
 
     const fetchsubCategory = async () => {
 
-        const res = await fetch(`http://18.191.246.31:9000/api/getsubcategorybyname/${productDetail.productName}`);
+        const res = await fetch(`https://terakarachi.com/api/getsubcategorybyname/${productDetail.productName}`);
 
         const datasubcategory = await res.json();
         console.log(datasubcategory);
@@ -140,7 +140,7 @@ useEffect(() => {
     //  })
 
     const lastRecord = async () => {
-      const res = await fetch(`http://18.191.246.31:9000/api/lastmulti`);
+      const res = await fetch(`https://terakarachi.com/api/lastmulti`);
 
       const lastRecordMulti = await res.json();
       console.log(lastRecordMulti, 'lastmulti');
@@ -214,7 +214,7 @@ const addPost=()=>{
    
         const headers = { "Content-Type": "application/json" };
         // const multi = multiproducts.map((prod)=>{
-        axios.post(`http://18.191.246.31:9000/api/postdata`, {
+        axios.post(`https://terakarachi.com/api/postdata`, {
           
           
 

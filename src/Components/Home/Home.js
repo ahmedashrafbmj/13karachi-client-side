@@ -61,7 +61,7 @@ useEffect(() => {
 
         const findEmail2 = localStorage.getItem('user'); 
     
-        const res = await fetch(`http://18.191.246.31:9000/api/allbookbyemail/${findEmail2}`, {
+        const res = await fetch(`https://terakarachi.com/api/allbookbyemail/${findEmail2}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -82,7 +82,7 @@ useEffect(() => {
     
     //     const fetchHotels = async () => {
     //         setLoading(true)
-    //         const res = await fetch('http://18.191.246.31:9000/api/allpostdata');
+    //         const res = await fetch('https://terakarachi.com/api/allpostdata');
 
     //         const data = await res.json();
     //         console.log(data);
@@ -101,7 +101,7 @@ useEffect(() => {
     
         let femail = localStorage.getItem('user');
     
-        const res3 = await fetch(`http://18.191.246.31:9000/api/postbyemailsignup/${femail}`,{
+        const res3 = await fetch(`https://terakarachi.com/api/postbyemailsignup/${femail}`,{
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -131,7 +131,7 @@ useEffect(() => {
         
 
         const fetchProducts = async () => {
-            const res = await fetch('http://18.191.246.31:9000/api/allpostdata');
+            const res = await fetch('https://terakarachi.com/api/allpostdata');
             const data = await res.json();
             console.log(data, "data");
             setProducts(data);
@@ -152,7 +152,7 @@ useEffect(() => {
     useEffect(() => {
 
         const fetcharea = async () => {
-            const res = await fetch(`http://18.191.246.31:9000/api/allgetarea`);
+            const res = await fetch(`https://terakarachi.com/api/allgetarea`);
     
             const dataarea = await res.json();
             console.log(dataarea);
@@ -169,7 +169,7 @@ useEffect(() => {
 
        
         const fetchCategory = async () => {
-            const res = await fetch(`http://18.191.246.31:9000/api/allgetcategory`);
+            const res = await fetch(`https://terakarachi.com/api/allgetcategory`);
 
             const datacategory = await res.json();
             console.log(datacategory);
@@ -192,7 +192,7 @@ useEffect(() => {
     useEffect(() => {
 
         const fetchsubCategory = async () => {
-            const res = await fetch('http://18.191.246.31:9000/api/allgetsubcategory');
+            const res = await fetch('https://terakarachi.com/api/allgetsubcategory');
 
             const datasubcategory = await res.json();
             console.log(datasubcategory);
@@ -212,7 +212,7 @@ useEffect(() => {
 
 
     const fetchCarousel = async () => {
-        const res = await fetch('http://18.191.246.31:9000/api/allgetcarousel');
+        const res = await fetch('https://terakarachi.com/api/allgetcarousel');
 
         const datacarousel = await res.json();
         

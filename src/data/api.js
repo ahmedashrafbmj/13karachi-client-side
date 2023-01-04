@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = 'http://18.191.246.31:9000/api/';
+const apiUrl = 'https://terakarachi.com/api/';
 
 export const singleFileUpload = async (data, options) => {
     try {

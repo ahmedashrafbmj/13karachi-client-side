@@ -37,7 +37,7 @@ const UserRegister=(props)=>{
                 else{
  
             const headers = { "Content-Type": "application/json" };
-            axios.post('http://18.191.246.31:9000/api/signup',{
+            axios.post('https://terakarachi.com/api/signup',{
                 email:register.email,
                 password:register.password,
                 role: "User",

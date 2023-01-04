@@ -28,7 +28,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`http://18.191.246.31:9000/api/allpostarea`,{
+        axios.post(`https://terakarachi.com/api/allpostarea`,{
             areaName:area.areaName,
             // imageURL:categoryDetail.imageURL,
             userEmail: localStorage.getItem('user'),

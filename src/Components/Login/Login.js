@@ -52,7 +52,7 @@ const Login=(props)=>{
                 }else{
  
             const headers = { "Content-Type": "application/json" };
-            axios.post(`http://18.191.246.31:9000/api/signin`,{
+            axios.post(`https://terakarachi.com/api/signin`,{
                 
                 email:data.email,
                 password:data.password
@@ -130,7 +130,7 @@ const getrole = async () => {
     
 
 
-    const res3 = await fetch(`http://18.191.246.31:9000/api/postbyemailsignup/${data.email}`,{
+    const res3 = await fetch(`https://terakarachi.com/api/postbyemailsignup/${data.email}`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json"

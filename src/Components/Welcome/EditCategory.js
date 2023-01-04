@@ -30,7 +30,7 @@ const { id } = useParams("");
 
     const getdata = async () => {
 
-        const res = await fetch(`http://18.191.246.31:9000/api/catid/${id}`, {
+        const res = await fetch(`https://terakarachi.com/api/catid/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -78,7 +78,7 @@ const updatePost=()=>{
     
 
         const headers = { "Content-Type": "application/json" };
-        axios.patch(`http://18.191.246.31:9000/api/catupdate/${id}`,{
+        axios.patch(`https://terakarachi.com/api/catupdate/${id}`,{
             categoryName:productDetail.categoryName,
             imageURL:productDetail.imageURL,
 

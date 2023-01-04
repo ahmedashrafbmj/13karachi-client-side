@@ -24,7 +24,7 @@ const AllUsers=(props)=>{
 const getdata = async () => {
 
 
-    const res = await fetch(`http://18.191.246.31:9000/api/allsignup`, {
+    const res = await fetch(`https://terakarachi.com/api/allsignup`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -67,7 +67,7 @@ const getrole=()=>{
     
 
     const headers = { "Content-Type": "application/json" };
-    axios.patch(`http://18.191.246.31:9000/api/profileupdate/${id}`,{
+    axios.patch(`https://terakarachi.com/api/profileupdate/${id}`,{
 
         accountsstatus: productDetail.accountsstatus,
 
@@ -109,7 +109,7 @@ useEffect(()=>{
 
 const deletedata = async (id) => {
 
-    const res2 = await fetch(`http://18.191.246.31:9000/api/deletesignup/${id}`, {
+    const res2 = await fetch(`https://terakarachi.com/api/deletesignup/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"

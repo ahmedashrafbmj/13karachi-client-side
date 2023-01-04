@@ -26,13 +26,13 @@ const Welcome2=(props)=>{
 const getdata = async () => {
 
     const findEmail2 = localStorage.getItem('user'); 
-    // http://localhost:4000http://18.191.246.31:9000/api/allpostdata
+    // http://localhost:4000https://terakarachi.com/api/allpostdata
 
-    // `http://localhost:4000http://18.191.246.31:9000/api/postbyemail/${useremail}`
+    // `http://localhost:4000https://terakarachi.com/api/postbyemail/${useremail}`
 
-    // http://18.191.246.31:9000/api/allpostdata
+    // https://terakarachi.com/api/allpostdata
 
-    const res = await fetch(`http://18.191.246.31:9000/api/allpostdata`, {
+    const res = await fetch(`https://terakarachi.com/api/allpostdata`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -48,13 +48,13 @@ const getdata = async () => {
 
 
 const gethotelname = async () => {
-    // http://localhost:4000http://18.191.246.31:9000/api/allpostdata
+    // http://localhost:4000https://terakarachi.com/api/allpostdata
 
-    // `http://localhost:4000http://18.191.246.31:9000/api/postbyemail/${useremail}`
+    // `http://localhost:4000https://terakarachi.com/api/postbyemail/${useremail}`
     const findEmail = localStorage.getItem('user'); 
     console.log(findEmail)
 
-    const res3 = await fetch(`http://18.191.246.31:9000/api/postbyemailsignup/${findEmail}`,{
+    const res3 = await fetch(`https://terakarachi.com/api/postbyemailsignup/${findEmail}`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -125,9 +125,9 @@ useEffect(() => {
 ///delelte single data
 
 const deletedata = async (id) => {
-    // http://localhost:4000http://18.191.246.31:9000/api/allpostdata
+    // http://localhost:4000https://terakarachi.com/api/allpostdata
 
-    const res2 = await fetch(`http://18.191.246.31:9000/api/deletepost/${id}`, {
+    const res2 = await fetch(`https://terakarachi.com/api/deletepost/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"

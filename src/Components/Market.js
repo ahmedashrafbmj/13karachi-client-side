@@ -30,7 +30,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`http://18.191.246.31:9000/api/allpostmarket`,{
+        axios.post(`https://terakarachi.com/api/allpostmarket`,{
             marketName:area.marketName,
             areaName:area.areaName,
             // imageURL:categoryDetail.imageURL,
@@ -83,7 +83,7 @@ const getrole=()=>{
   useEffect(() => {
 
     const fetcharea = async () => {
-        const res = await fetch(`http://18.191.246.31:9000/api/allgetarea`);
+        const res = await fetch(`https://terakarachi.com/api/allgetarea`);
 
         const dataarea = await res.json();
         console.log(dataarea);

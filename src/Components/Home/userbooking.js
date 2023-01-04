@@ -28,7 +28,7 @@ const getdata = async () => {
     const findEmail2 = localStorage.getItem('user'); 
     console.log(findEmail2, 'email')
 
-    const res = await fetch(`http://18.191.246.31:9000/api/allbookbyemail/${findEmail2}`, {
+    const res = await fetch(`https://terakarachi.com/api/allbookbyemail/${findEmail2}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"

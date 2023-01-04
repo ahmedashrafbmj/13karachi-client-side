@@ -42,7 +42,7 @@ const ImageSlider = ({ slides }) => {
 
   const fetchCarousel = async () => {
 
-    const res = await fetch('http://18.191.246.31:9000/api/allgetcarousel');
+    const res = await fetch('https://terakarachi.com/api/allgetcarousel');
 
     const datacarousel = await res.json();
     

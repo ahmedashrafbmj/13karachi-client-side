@@ -33,7 +33,7 @@ const BookingComplete=(props)=>{
 
 
     //     const fetchDetails= async () => {
-    //         const res = await fetch(`http://18.191.246.31:9000/api/getbookuserid/${pkgid}`);
+    //         const res = await fetch(`https://terakarachi.com/api/getbookuserid/${pkgid}`);
     //         const data = await res.json();
     //         console.log(data);
     //         setbooking(data);

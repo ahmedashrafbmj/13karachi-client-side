@@ -33,7 +33,7 @@ const [roleau, setroleau] = useState ('');
 
         const fetchMarkets = async () => {
             setLoading(true)
-            const res = await fetch(`http://18.191.246.31:9000/api/getmarket/${marketname}`);
+            const res = await fetch(`https://terakarachi.com/api/getmarket/${marketname}`);
 
             const data = await res.json();
             console.log(data);

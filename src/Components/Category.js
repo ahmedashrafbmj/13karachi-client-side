@@ -30,7 +30,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`http://18.191.246.31:9000/api/allpostcategory`,{
+        axios.post(`https://terakarachi.com/api/allpostcategory`,{
             categoryName:categoryDetail.categoryName,
             imageURL:categoryDetail.imageURL,
             userEmail: localStorage.getItem('user'),

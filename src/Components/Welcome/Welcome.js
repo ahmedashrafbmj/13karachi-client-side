@@ -319,7 +319,7 @@ const getdata = async () => {
 
     // /api/allpostdata
 
-    const res = await fetch(`http://18.191.246.31:9000/api/postbyemail/${findEmail2}`, {
+    const res = await fetch(`https://terakarachi.com/api/postbyemail/${findEmail2}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"

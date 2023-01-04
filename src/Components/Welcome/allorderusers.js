@@ -21,7 +21,7 @@ const AllOrderUsers=(props)=>{
 const getdata = async () => {
 
 
-    const res = await fetch(`http://18.191.246.31:9000/api/allpostbook`, {
+    const res = await fetch(`https://terakarachi.com/api/allpostbook`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -82,7 +82,7 @@ const updatePost=(id)=>{
     
 
     const headers = { "Content-Type": "application/json" };
-    axios.patch(`http://18.191.246.31:9000/api/ordersupdate/${id}`,{
+    axios.patch(`https://terakarachi.com/api/ordersupdate/${id}`,{
 
         paymentstatus: productDetail.paymentstatus,
 
@@ -109,7 +109,7 @@ console.log('error',err)
 
 const deletedata = async (id) => {
 
-    const res2 = await fetch(`http://18.191.246.31:9000/api/deleteorders/${id}`, {
+    const res2 = await fetch(`https://terakarachi.com/api/deleteorders/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"

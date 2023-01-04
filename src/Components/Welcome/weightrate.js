@@ -31,7 +31,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`http://18.191.246.31:9000/api/allpostweight`,{
+        axios.post(`https://terakarachi.com/api/allpostweight`,{
             upto500Gram:categoryDetail.upto500Gram,
             fivehundred1to1kg:categoryDetail.fivehundred1to1kg,
             eachkg:categoryDetail.eachkg,
@@ -92,7 +92,7 @@ useEffect(() => {
     
 
         const headers = { "Content-Type": "application/json" };
-        axios.patch(`http://18.191.246.31:9000/api/weightupdate/6349c7e9d21e304d9e00a547`,{
+        axios.patch(`https://terakarachi.com/api/weightupdate/6349c7e9d21e304d9e00a547`,{
     
             upto500Gram:categoryDetail.upto500Gram,
             fivehundred1to1kg:categoryDetail.fivehundred1to1kg,

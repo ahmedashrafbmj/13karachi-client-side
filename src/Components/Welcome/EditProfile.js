@@ -30,7 +30,7 @@ const { id } = useParams("");
 
     const getdata = async () => {
 
-        const res = await fetch(`http://18.191.246.31:9000/api/profileid/${id}`, {
+        const res = await fetch(`https://terakarachi.com/api/profileid/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -92,7 +92,7 @@ const updatePost=()=>{
     
 
         const headers = { "Content-Type": "application/json" };
-        axios.patch(`http://18.191.246.31:9000/api/profileupdate/${id}`,{
+        axios.patch(`https://terakarachi.com/api/profileupdate/${id}`,{
             cnic:productDetail.cnic,
             contact:productDetail.contact,
             address:productDetail.address,

@@ -47,7 +47,7 @@ const logout=()=>{
     useEffect(() => {
 
         const fetchProducts = async () => {
-            const res = await fetch('http://18.191.246.31:9000/api/allpostdata');
+            const res = await fetch('https://terakarachi.com/api/allpostdata');
             const data = await res.json();
             console.log(data, "data");
             setProducts(data);

@@ -77,7 +77,7 @@ const RoomDetails=(props)=>{
 
 
     const fetchDetails = async () => {
-        const res = await fetch(`http://18.191.246.31:9000/api/getuser/${id}`);
+        const res = await fetch(`https://terakarachi.com/api/getuser/${id}`);
         const data = await res.json();
         console.log(data);
         setHotel(data);
@@ -86,7 +86,7 @@ const RoomDetails=(props)=>{
     };
    
     const fetchDelivered = async () => {
-        const res = await fetch(`http://18.191.246.31:9000/api/delivered`);
+        const res = await fetch(`https://terakarachi.com/api/delivered`);
         const dataDelivered = await res.json();
         console.log(dataDelivered, 'fetch Delivered');
         setDelivered(dataDelivered);
@@ -212,6 +212,7 @@ console.log(hotel.multiProd, 'iddetail')
   <div class="col-4" onMouseMove={() => func()}>
   
   <img src={hotel.imageURL}></img>
+  <img src={lastRecord[0]}></img>
   
   <div class="col-12">
 
@@ -219,7 +220,7 @@ console.log(hotel.multiProd, 'iddetail')
 
 // {/* <img src={`http://karachi14.herokuapp.com:${PORT}/${last}`}></img> */}
 
-<img src={`http://localhost:${PORT}/${last}`}></img>
+<img src={`http://18.191.246.31/:${PORT}/${last}`}></img>
 
 ))}
 

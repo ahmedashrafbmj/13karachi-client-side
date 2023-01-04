@@ -45,7 +45,7 @@ const addPost=()=>{
     
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`http://18.191.246.31:9000/api/allpostcarousel`,{
+        axios.post(`https://terakarachi.com/api/allpostcarousel`,{
             imageURL: image,
             // imageURL:categoryDetail.imageURL,
             userEmail: localStorage.getItem('user'),

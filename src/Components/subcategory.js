@@ -30,7 +30,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`http://18.191.246.31:9000/api/allpostsubcategory`,{
+        axios.post(`https://terakarachi.com/api/allpostsubcategory`,{
             categoryName:categoryDetail.categoryName,
             subcategoryName:categoryDetail.subcategoryName,
             userEmail: localStorage.getItem('user'),
@@ -57,7 +57,7 @@ history.push('/Welcome')
 useEffect(() => {
 
     const fetchCategory = async () => {
-        const res = await fetch(`http://18.191.246.31:9000/api/allgetcategory`);
+        const res = await fetch(`https://terakarachi.com/api/allgetcategory`);
 
         const datacategory = await res.json();
         console.log(datacategory);
