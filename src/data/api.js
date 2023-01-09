@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = 'https://terakarachi.com/api/';
+const apiUrl = 'https://web-production-6504.up.railway.app/api/';
 
 export const singleFileUpload = async (data, options) => {
     try {

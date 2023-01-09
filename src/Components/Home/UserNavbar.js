@@ -5,6 +5,7 @@ import cartpic from '../images/shopping-cart.png'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { Button, Card, Container, Row, Col } from 'react-bootstrap';
 
 
 
@@ -47,7 +48,7 @@ const logout=()=>{
     useEffect(() => {
 
         const fetchProducts = async () => {
-            const res = await fetch('https://terakarachi.com/api/allpostdata');
+            const res = await fetch('https://web-production-6504.up.railway.app/api/allpostdata');
             const data = await res.json();
             console.log(data, "data");
             setProducts(data);
@@ -85,6 +86,7 @@ return(
 <>
 
 {/* <div className='MainDiv'> */}
+
 <nav class="navbar navbar-light fixed-top bg-light">
 <Navbar  bg="light" variant={"light"} expand="lg">
                         <Navbar.Brand href="#">13Karachi</Navbar.Brand>

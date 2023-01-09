@@ -4,6 +4,7 @@ import {useHistory} from "react-router-dom";
 import cartpic from '../images/shopping-cart.png'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Button, Card, Row, Col } from 'react-bootstrap';
 
 
 
@@ -42,7 +43,7 @@ const logout=()=>{
     useEffect(() => {
 
         const fetchProducts = async () => {
-            const res = await fetch('https://terakarachi.com/api/allpostdata');
+            const res = await fetch('https://web-production-6504.up.railway.app/api/allpostdata');
             const data = await res.json();
             console.log(data, "data");
             setProducts(data);
@@ -79,8 +80,31 @@ const logout=()=>{
 return(
 
 <>
+<Navbar style={{background:"#CCFF33",fontWeight:"bold"}} expand="lg">
+      {/* <Navbar style={{background:"#CCFF33",fontWeight:"bold"}} expand="lg"> */}
+      <Container fluid>
+        <Navbar.Brand href="#">Logo</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/userregister">Signup As User</Nav.Link>
+            <Nav.Link href="/register">Signup As Seller</Nav.Link>
+            <Nav.Link href="/adminOrders">Login</Nav.Link>
+          </Nav>
+          <Nav>
+        {/* <Nav.Link onClick={logout}>Logout</Nav.Link> */}
+ 
+      </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
 
-<nav class="navbar navbar-light fixed-top bg-light">
+{/* <nav class="navbar navbar-light fixed-top bg-light">
 <Navbar bg="light" variant={"light"} expand="lg">
                         <Navbar.Brand href="#">13Karachi</Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -93,9 +117,7 @@ return(
    
       
 
-                                {/* <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                                <Nav.Link as={Link} to="/about">About</Nav.Link>
-                                <Nav.Link as={Link} to="/contact">Contact</Nav.Link> */}
+                               
 
 <div className='btn'>
 <a class="btn btn-primary" href="/" role="button">Home</a>
@@ -119,7 +141,7 @@ return(
                         </Navbar.Collapse>
                     </Navbar>
                     
-                    </nav>
+                    </nav> */}
 <br />
 <br />
 <br />

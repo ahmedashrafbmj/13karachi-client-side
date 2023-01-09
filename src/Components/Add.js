@@ -100,7 +100,7 @@ const uploadImage = async e =>{
 }   
 
 const fetchCategory = async () => {
-  const res = await fetch(`https://terakarachi.com/api/allgetcategory`);
+  const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetcategory`);
 
   const datacategory = await res.json();
   console.log(datacategory);
@@ -121,7 +121,7 @@ useEffect(() => {
 
     const fetchsubCategory = async () => {
 
-        const res = await fetch(`https://terakarachi.com/api/getsubcategorybyname/${productDetail.productName}`);
+        const res = await fetch(`https://web-production-6504.up.railway.app/api/getsubcategorybyname/${productDetail.productName}`);
 
         const datasubcategory = await res.json();
         console.log(datasubcategory);
@@ -140,7 +140,7 @@ useEffect(() => {
     //  })
 
     const lastRecord = async () => {
-      const res = await fetch(`https://terakarachi.com/api/lastmulti`);
+      const res = await fetch(`https://web-production-6504.up.railway.app/api/lastmulti`);
 
       const lastRecordMulti = await res.json();
       console.log(lastRecordMulti, 'lastmulti');
@@ -214,7 +214,7 @@ const addPost=()=>{
    
         const headers = { "Content-Type": "application/json" };
         // const multi = multiproducts.map((prod)=>{
-        axios.post(`https://terakarachi.com/api/postdata`, {
+        axios.post(`https://web-production-6504.up.railway.app/api/postdata`, {
           
           
 

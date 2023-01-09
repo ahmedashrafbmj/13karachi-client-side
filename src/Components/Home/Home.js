@@ -11,14 +11,15 @@ import {add} from '../../store/orderslice';
 // import { add } from '../../store/cartSlice';
 import { addToCart } from "../../store/cartSlice";
 // import Slider from '../slider';
-
+import Carousel from 'react-img-carousel';
+import Slide from './Slide';
 import loadingimg from '../images/loading.gif'
 import Products from '../Products'
 import ImageSlider from './ImageSlider';
-
-
-
-
+import Product from './Product';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import AppBlockingIcon from '@mui/icons-material/AppBlocking';
 
 
 
@@ -61,7 +62,7 @@ useEffect(() => {
 
         const findEmail2 = localStorage.getItem('user'); 
     
-        const res = await fetch(`https://terakarachi.com/api/allbookbyemail/${findEmail2}`, {
+        const res = await fetch(`https://web-production-6504.up.railway.app/api/allbookbyemail/${findEmail2}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -82,7 +83,7 @@ useEffect(() => {
     
     //     const fetchHotels = async () => {
     //         setLoading(true)
-    //         const res = await fetch('https://terakarachi.com/api/allpostdata');
+    //         const res = await fetch('https://web-production-6504.up.railway.app/api/allpostdata');
 
     //         const data = await res.json();
     //         console.log(data);
@@ -101,7 +102,7 @@ useEffect(() => {
     
         let femail = localStorage.getItem('user');
     
-        const res3 = await fetch(`https://terakarachi.com/api/postbyemailsignup/${femail}`,{
+        const res3 = await fetch(`https://web-production-6504.up.railway.app/api/postbyemailsignup/${femail}`,{
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -131,7 +132,7 @@ useEffect(() => {
         
 
         const fetchProducts = async () => {
-            const res = await fetch('https://terakarachi.com/api/allpostdata');
+            const res = await fetch('https://web-production-6504.up.railway.app/api/allpostdata');
             const data = await res.json();
             console.log(data, "data");
             setProducts(data);
@@ -152,7 +153,7 @@ useEffect(() => {
     useEffect(() => {
 
         const fetcharea = async () => {
-            const res = await fetch(`https://terakarachi.com/api/allgetarea`);
+            const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetarea`);
     
             const dataarea = await res.json();
             console.log(dataarea);
@@ -169,7 +170,7 @@ useEffect(() => {
 
        
         const fetchCategory = async () => {
-            const res = await fetch(`https://terakarachi.com/api/allgetcategory`);
+            const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetcategory`);
 
             const datacategory = await res.json();
             console.log(datacategory);
@@ -192,7 +193,7 @@ useEffect(() => {
     useEffect(() => {
 
         const fetchsubCategory = async () => {
-            const res = await fetch('https://terakarachi.com/api/allgetsubcategory');
+            const res = await fetch('https://web-production-6504.up.railway.app/api/allgetsubcategory');
 
             const datasubcategory = await res.json();
             console.log(datasubcategory);
@@ -212,7 +213,7 @@ useEffect(() => {
 
 
     const fetchCarousel = async () => {
-        const res = await fetch('https://terakarachi.com/api/allgetcarousel');
+        const res = await fetch('https://web-production-6504.up.railway.app/api/allgetcarousel');
 
         const datacarousel = await res.json();
         
@@ -287,6 +288,8 @@ useEffect(() => {
     const takeorder = (orders) => {
         dispatch(add(orders));
       };
+      console.log(SliderData,"SliderData")
+      const [current, setCurrent] = useState(0);
 
 
     return (
@@ -294,16 +297,86 @@ useEffect(() => {
       
         <>
         
-        <marquee  behavior="" direction="left">Ab kisi bhi market ki koi bhi ghomain  ghar baythay 13 karachi par</marquee>
+        {/* <marquee  behavior="" direction="left">Ab kisi bhi market ki koi bhi ghomain  ghar baythay 13 karachi par</marquee> */}
 
         {
            
-               (roleau === 'User' ? <UserNavbar />  : <HomeNavbar />)
+               (roleau === 'User' ?<>
+               <Slide/>
+               {/* <UserNavbar />   */}
+               </> 
+               :
+               <>
+                         <Slide/>
+
+               {/* <HomeNavbar /> */}
+               
+               </>
+               )
+
+        }
+        {
+           
+               (roleau === 'User' ?<>
+               {/* <Slide/> */}
+               <UserNavbar />  
+               </> 
+               :
+               <>
+                         {/* <Slide/> */}
+
+               <HomeNavbar />
+               
+               </>
+               )
 
         }
 
+        
 
-<ImageSlider slides = {SliderData} />
+{/* <div className='d-flex justify-content-between' style={{ color: "white",background:"Black" }}>
+<div>  <Button className="btn text-white" style={{color:"#058b80"}}>
+                    <a class="navbar-brand text-white" href="#" >
+                        As Seller
+                    </a>
+                </Button></div>
+<div>
+    <img src="/img/logo.jpeg" style={{ height:"64px"}}/>
+</div>
+<div><Button className="btn text-white">
+                    <a class="navbar-brand text-white" href="#" >
+                        As User
+                    </a>
+                </Button></div>
+</div> */}
+{/* <ImageSlider slides = {SliderData} /> */}
+{/* <Carousel
+                style={{zIndex: 1}}
+                className="banner"
+                autoplaySpeed={2000}
+                lazyLoad={true}
+                height={"200px"}
+                // viewportHeight={500}
+                slideWidth={"100%"}
+                slideHeight={"200"}
+                autoplay={true}
+                cellPadding={5}>
+                {
+                    SliderData.map((slide, index) => {
+                        return (
+<>
+
+<img key={index} className='bannerImg' src={slide?.imageURL[current] } />
+</>
+
+                        
+                            )
+
+                    })
+                }
+                <img className='bannerImg' src='https://th.bing.com/th/id/OIP.xEbcztsACaZL-Aw5DeLuZwHaDZ?w=338&h=160&c=7&r=0&o=5&pid=1.7' />
+                
+            </Carousel> */}
 
 
 
@@ -319,50 +392,44 @@ useEffect(() => {
     <h1>All Area:</h1>
     <br />
     <br />
-    <Container>
-      <Row>
+    <section  style={{display:"flex",justifyContent:"space-between",textAlign:"center",flexWrap:"wrap",alignItems:"center"}}>
+
 
           
             {areaData.map((category) => (
              
 
-            
-                    <Col>                    
-                    <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={category.imageURL}/>
-                        <Card.Body>
-                            <Card.Title>{category.areaName} </Card.Title>
-                          
-
-                            <Button  variant="primary" href={`ShowMarket/${category.areaName}`}> Show Market</Button>
-                        
-                            {/* <Button  variant="primary" href={`ShowGallerySub/${category.categoryName}`}> Products By Sub-Category</Button>  */}
-                        </Card.Body>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style={{background:"white", color:"black",marginTop:"10px",display:"flex",justifyContent:"center" }}>
+                    <Card   style={{ width: '10rem'}}>
+                          <Card.Img style={{height:"120px"}} variant="top"  src={category.imageURL} />
+                          <Card.Body>
+                            <Card.Title>{category.categoryName}</Card.Title>
+                           
+                            <Button class="m-auto" style={{backgroundColor:"#058b80",marginLeft:"4px"}} onClick={()=> alert("go to app")}>Show Markets</Button>
+                          </Card.Body>
                         </Card>
-                        <br />
-                        </Col>
+                        </div>
          
                         
             ))}
       
-            </Row>
-      </Container>
+           </section>
 
   
         
+        {/* <br />
         <br />
-        <br />
-        <br />
+        <br /> */}
 
 
 
 
-        <br />
+        {/* <br />
     <br />
     <h1>All Category Total: ({categoryCount})</h1>
     <br />
-    <br />
-    <Container>
+    <br /> */}
+    {/* <Container>
       <Row>
 
           
@@ -379,7 +446,6 @@ useEffect(() => {
 
                             <Button  variant="primary" href={`ShowGallery/${category.categoryName}`}> Show Products By Category</Button>
                         
-                            {/* <Button  variant="primary" href={`ShowGallerySub/${category.categoryName}`}> Products By Sub-Category</Button>  */}
                         </Card.Body>
                         </Card>
                         <br />
@@ -391,7 +457,7 @@ useEffect(() => {
             </Row>
       </Container>
 
-  
+   */}
         
         <br />
         <br />
@@ -450,70 +516,77 @@ useEffect(() => {
         
         <br />
         <br />
+{/* <Product data={products}/> */}
 
-        {
+        {/* {
       loading?( //if
         // <h3>Loading ... </h3>
         <img src={loadingimg} />
-      ): ( //else
+      ): ( //else */}
 
 
-     <Container>
-      <Row>
+     
 
           
             {products.map((product) => (
              
 
-            
-                    <Col>                    
-                    <Card style={{ width: '18rem' }} >
-
-                    <Link to={`Details/${product._id}`}> 
-                
-                    <Card.Img variant="top"  src={product.imageURL} />
-
-                    </Link>
-
-                        <Card.Body>
-                            <Card.Title><h4>{product.productTitle}</h4></Card.Title>
-                            
-                            {
-                            
-                           (product.productwasPrice === null)
-
-                            ? (product.productwasPrice === "" || `Rs.${product.productPrice}/-`) 
+              <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style={{background:"white", color:"black",marginTop:"10px",display:"flex",justifyContent:"center" }}>
+                    <Card   onClick={()=> alert("go to app")} style={{ width: '16rem'}}>
+                          <Card.Img style={{height:"220px"}} variant="top"  src={product.imageURL} />
+                          <Card.Body>
+                            <Card.Title>{product.productTitle}</Card.Title>
+                            <Card.Title>Rs-/{product.productPrice}</Card.Title>
                            
-                            
-                            :
-                            
-                            <Card.Text>
-
-                            <h4><b>Rs.{product.productPrice}/- &nbsp; <del>Rs.{product.productwasPrice}/-</del></b></h4>
-                    
-                 
-
-                            </Card.Text>
-                        }
-                            {/* <Button  variant="primary" href={`Details/${product._id}`}>Product Details</Button> 
-                            <br /> */}
-                            <br />
-                           
-                            <Button  variant="primary" onClick={() => handleAdd(product)}>Add to Cart</Button> 
-                         
-                        </Card.Body>
+                          </Card.Body>
                         </Card>
-                        <br />
-                        </Col>
-         
+                        </div>
                         
-            ))}
-      
-            </Row>
-      </Container>
+                        
+                        ))}
+                        
 
-           )
-        } 
+                        {/* footer  */}
+                        <div class="row" style={{background:"#CCFF33", color:"black",fontWeight:"bold",textAlign:"center"}}>
+    <br/>
+    <div class="col-lg-4 col-md-6">
+      <img src="/img/logo.jpeg" style={{ height:"64px"}}/>
+    <h6>you can visit the any shop of any market at 13karachi you can visit the any <br/>
+    you can visit the any shop of any market at 13karachi
+    you can <br/>
+    you can visit the any shop of any market at 13karachi you can visit the any <br/>  you can visit the any shop of any market at 13karachi    you can visit the any </h6>   
+    </div>
+    <div class="col-lg-4 col-md-6">
+     <h1>UseFul Links</h1>
+     <p>Home</p>
+     <p>sign up</p>
+     <p>Login</p>
+     {/* <p>About us</p> */}
+    </div>
+    <div class="col-lg-4 col-md-6">
+<h1>Contact Us</h1>
+<p><FacebookIcon/></p>
+<p><InstagramIcon/></p>
+<p><AppBlockingIcon/></p>
+    </div>
+  
+    {/* <Layout>
+      
+    <Footer style={{ textAlign: 'center' ,background:"black", color:"white" }}>  <div class="col-9" style={{ textAlign: 'left' ,background:"black", color:"white" }}> <h1>13 karachi</h1>
+    <h6>you can visit the any shop of any market at 13karachi you can visit the any <br/>
+    you can visit the any shop of any market at 13karachi
+    you can <br/>
+    you can visit the any shop of any market at 13karachi you can visit the any <br/>  you can visit the any shop of any market at 13karachi    you can visit the any </h6>   
+            
+            </div>
+            
+            www.13karachi.com ©2022 Created by Ahmed Ashraf</Footer>
+
+    </Layout> */}
+   </div>
+                   
+           {/* )
+        }  */}
 
 
  
@@ -522,4 +595,44 @@ useEffect(() => {
     );
 };
 
+                    // <Col>                    
+                    // <Card style={{ width: '18rem' }} >
+
+                    // <Link to={`Details/${product._id}`}> 
+                
+                    // <Card.Img variant="top"  src={product.imageURL} />
+
+                    // </Link>
+
+                    //     <Card.Body>
+                    //         <Card.Title><h4>{product.productTitle}</h4></Card.Title>
+                            
+                    //         {
+                            
+                    //        (product.productwasPrice === null)
+
+                    //         ? (product.productwasPrice === "" || `Rs.${product.productPrice}/-`) 
+                           
+                            
+                    //         :
+                            
+                    //         <Card.Text>
+
+                    //         <h4><b>Rs.{product.productPrice}/- &nbsp; <del>Rs.{product.productwasPrice}/-</del></b></h4>
+                    
+                 
+
+                    //         </Card.Text>
+                    //     }
+                          
+                    //         <br />
+                           
+                    //         <Button  variant="primary" onClick={() => handleAdd(product)}>Add to Cart</Button> 
+                         
+                    //     </Card.Body>
+                    //     </Card>
+                    //     <br />
+                    //     </Col>
+
+//                      
 export default Home;

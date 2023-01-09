@@ -31,7 +31,7 @@ const AdminOrders=(props)=>{
        
 
         const fetchDetails= async () => {
-            const res = await fetch(`https://terakarachi.com/api/allpostbook`);
+            const res = await fetch(`https://web-production-6504.up.railway.app/api/allpostbook`);
 
             const data = await res.json();
             console.log(data,"data");

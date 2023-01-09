@@ -75,7 +75,7 @@ const uploadImage = async e =>{
                 else{
  
             const headers = { "Content-Type": "application/json" };
-            axios.post(`https://terakarachi.com/api/signup`,{
+            axios.post(`https://web-production-6504.up.railway.app/api/signup`,{
                 email:register.email,
                 password:register.password,
                 role: "Admin",
@@ -137,7 +137,7 @@ const uploadImage = async e =>{
          useEffect(() => {
 
             const fetcharea = async () => {
-                const res = await fetch(`https://terakarachi.com/api/allgetarea`);
+                const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetarea`);
         
                 const dataarea = await res.json();
                 console.log(dataarea);
@@ -154,7 +154,7 @@ const uploadImage = async e =>{
      
 
             const fetchareaName = async () => {
-                const res = await fetch(`https://terakarachi.com/api/getareaname/${register.area}`);
+                const res = await fetch(`https://web-production-6504.up.railway.app/api/getareaname/${register.area}`);
         
                 const dataareaname = await res.json();
                 console.log(dataareaname);
@@ -201,7 +201,7 @@ return(
 
 {areaData?.map((area) => (
     
-<option> {area.areaName}</option>
+<option> {area.categoryName}</option>
 
 ))}
 

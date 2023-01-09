@@ -33,7 +33,7 @@ const [roleau, setroleau] = useState ('');
 
         const fetchHotels = async () => {
             setLoading(true)
-            const res = await fetch(`https://terakarachi.com/api/postbysubcategory/${qty}`);
+            const res = await fetch(`https://web-production-6504.up.railway.app/api/postbysubcategory/${qty}`);
 
             const data = await res.json();
             console.log(data);

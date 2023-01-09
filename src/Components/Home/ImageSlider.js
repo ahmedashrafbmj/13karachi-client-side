@@ -42,7 +42,7 @@ const ImageSlider = ({ slides }) => {
 
   const fetchCarousel = async () => {
 
-    const res = await fetch('https://terakarachi.com/api/allgetcarousel');
+    const res = await fetch('https://web-production-6504.up.railway.app/api/allgetcarousel');
 
     const datacarousel = await res.json();
     

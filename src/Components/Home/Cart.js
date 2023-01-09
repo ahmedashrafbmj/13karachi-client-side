@@ -29,7 +29,7 @@ const Cart = () => {
 
       const fetchDetails = async (id) => {
 
-        const res = await fetch(`https://terakarachi.com/api/getuser/${id}`);
+        const res = await fetch(`https://web-production-6504.up.railway.app/api/getuser/${id}`);
         const data = await res.json();
         console.log(data);
         setarrData(data);

@@ -30,7 +30,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`https://terakarachi.com/api/allpostmarket`,{
+        axios.post(`https://web-production-6504.up.railway.app/api/allpostmarket`,{
             marketName:area.marketName,
             areaName:area.areaName,
             // imageURL:categoryDetail.imageURL,
@@ -83,7 +83,7 @@ const getrole=()=>{
   useEffect(() => {
 
     const fetcharea = async () => {
-        const res = await fetch(`https://terakarachi.com/api/allgetarea`);
+        const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetarea`);
 
         const dataarea = await res.json();
         console.log(dataarea);
