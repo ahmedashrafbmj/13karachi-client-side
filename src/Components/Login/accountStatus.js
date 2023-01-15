@@ -21,7 +21,7 @@ function AccountStatus(){
     
     return (
         <>
-        <h1>This Account is Temporary Disabled, While Super Admin can see this and fix this error with 24 Hours..... Please Logout after 24 Hours and Login again Thank you</h1>
+        <h1>This Account is Temporary Disabled, While Super Admin can see this and Approve your request with in 24 Hours..... Please Logout after 24 Hours and Login again Thank you</h1>
 
         <br />
 

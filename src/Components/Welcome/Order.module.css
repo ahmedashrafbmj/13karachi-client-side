@@ -1,24 +1,24 @@
 .table{
     text-transform: capitalize;
-    font-family:cursive !important;
+    /* font-family:cursive !important; */
 
 }
 .table thead tr th{
     font-weight: 600;
     color: #7b7b7b;
-    font-family:cursive !important;
+    /* font-family:cursive !important; */
 
 }
 .thead{
     border-top: 1px solid #e0dbdb;
     border-bottom: 1px solid #e0dbdb;
-    font-family:cursive !important;
+    /* font-family:cursive !important; */
 
 }
 .table td{
     color:var(--color-ming);
     font-weight: 700;
-    font-family:cursive !important;
+    /* font-family:cursive !important; */
 
 }
 .table img{
@@ -43,14 +43,14 @@
     border-radius: 3px;
     padding: 0px 0px 3px 2px;
     width: 50px;
-    font-family:cursive !important;
+    /* font-family:cursive !important; */
 
 }
 
 .qty span{
     font-size: 10px;
     padding-right:1px;
-    font-family:cursive !important;
+    /* font-family:cursive !important; */
 
 }
 ::-webkit-scrollbar {
@@ -76,7 +76,7 @@
     background: #555;
     background: #888;
     border-radius:10px;
-    font-family:cursive !important;
+    /* font-family:cursive !important; */
 
 }
 
@@ -91,7 +91,7 @@
     color: rgb(90, 90, 90) !important;
     font-weight: 800 !important;
     cursor:pointer;
-    font-family:cursive !important;
+    /* font-family:cursive !important; */
 
 }
 .btn:hover{
@@ -101,7 +101,7 @@
     color: #e34545 !important;
     font-weight: 800 !important;
     cursor:pointer;
-    font-family:cursive !important;
+    /* font-family:cursive !important; */
 
 }
 .btnDelete:hover{

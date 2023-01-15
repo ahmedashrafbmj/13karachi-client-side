@@ -15,7 +15,7 @@ import Carousel from 'react-img-carousel';
 import Slide from './Slide';
 import loadingimg from '../images/loading.gif'
 import Products from '../Products'
-import ImageSlider from './ImageSlider';
+// import ImageSlider from './ImageSlider';
 import Product from './Product';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -34,7 +34,7 @@ const Home=(props)=>{
 const [loading, setLoading] = useState(false);
 const [roleau, setroleau] = useState ('');
 
-const [areaData, setAreaData] = useState (['']);
+const [areaData, setAreaData] = useState ();
 
 const [SliderData, setSliderData] = useState([0])
 
@@ -71,7 +71,7 @@ useEffect(() => {
         });
     
         const data = await res.json();
-        console.log(data[4].cartItems[0].hotelname, 'obj');
+        console.log(data[4]?.cartItems[0]?.hotelname, 'obj');
         setOrders(data); 
         
        
@@ -334,29 +334,14 @@ useEffect(() => {
 
         
 
-{/* <div className='d-flex justify-content-between' style={{ color: "white",background:"Black" }}>
-<div>  <Button className="btn text-white" style={{color:"#058b80"}}>
-                    <a class="navbar-brand text-white" href="#" >
-                        As Seller
-                    </a>
-                </Button></div>
-<div>
-    <img src="/img/logo.jpeg" style={{ height:"64px"}}/>
-</div>
-<div><Button className="btn text-white">
-                    <a class="navbar-brand text-white" href="#" >
-                        As User
-                    </a>
-                </Button></div>
-</div> */}
-{/* <ImageSlider slides = {SliderData} /> */}
+
+{/* {SliderData &&<ImageSlider slides = {SliderData} />} */}
 {/* <Carousel
                 style={{zIndex: 1}}
                 className="banner"
                 autoplaySpeed={2000}
                 lazyLoad={true}
                 height={"200px"}
-                // viewportHeight={500}
                 slideWidth={"100%"}
                 slideHeight={"200"}
                 autoplay={true}
@@ -366,7 +351,7 @@ useEffect(() => {
                         return (
 <>
 
-<img key={index} className='bannerImg' src={slide?.imageURL[current] } />
+<img key={index} className='bannerImg' src={slide?.imageURL[0] ? slide?.imageURL[0] : <> <img src={loadingimg}/></> } />
 </>
 
                         
@@ -374,7 +359,6 @@ useEffect(() => {
 
                     })
                 }
-                <img className='bannerImg' src='https://th.bing.com/th/id/OIP.xEbcztsACaZL-Aw5DeLuZwHaDZ?w=338&h=160&c=7&r=0&o=5&pid=1.7' />
                 
             </Carousel> */}
 
@@ -395,8 +379,23 @@ useEffect(() => {
     <section  style={{display:"flex",justifyContent:"space-between",textAlign:"center",flexWrap:"wrap",alignItems:"center"}}>
 
 
-          
-            {areaData.map((category) => (
+          {areaData? areaData.map((category) => (
+             
+
+             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style={{background:"white", color:"black",marginTop:"10px",display:"flex",justifyContent:"center" }}>
+             <Card   style={{ width: '10rem'}}>
+                   <Card.Img style={{height:"120px"}} variant="top"  src={category.imageURL ? category.imageURL : <><img src={loadingimg}/></>} />
+                   <Card.Body>
+                     <Card.Title>{category.categoryName}</Card.Title>
+                    
+                     <Button class="m-auto" style={{backgroundColor:"#058b80",marginLeft:"4px"}} href={`ShowMarket/${category.categoryName}`}>Show Markets</Button>
+                   </Card.Body>
+                 </Card>
+                 </div>
+  
+                 
+     )) : <img src={loadingimg}/>}
+            {/* {areaData ?  areaData.map((category) => (
              
 
                     <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style={{background:"white", color:"black",marginTop:"10px",display:"flex",justifyContent:"center" }}>
@@ -405,13 +404,14 @@ useEffect(() => {
                           <Card.Body>
                             <Card.Title>{category.categoryName}</Card.Title>
                            
-                            <Button class="m-auto" style={{backgroundColor:"#058b80",marginLeft:"4px"}} onClick={()=> alert("go to app")}>Show Markets</Button>
+                            <Button class="m-auto" style={{backgroundColor:"#058b80",marginLeft:"4px"}} href={`ShowMarket/${category.categoryName}`}>Show Markets</Button>
                           </Card.Body>
                         </Card>
                         </div>
          
                         
             ))}
+            :<img src={loadingimg} */}
       
            </section>
 
@@ -526,48 +526,57 @@ useEffect(() => {
 
 
      
-
+<section style={{display:"flex",justifyContent:"space-between",textAlign:"center",flexWrap:"wrap",alignItems:"center"}}>
           
-            {products.map((product) => (
+            {products  ? products.map((product) => (
              
-
-              <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style={{background:"white", color:"black",marginTop:"10px",display:"flex",justifyContent:"center" }}>
-                    <Card   onClick={()=> alert("go to app")} style={{ width: '16rem'}}>
-                          <Card.Img style={{height:"220px"}} variant="top"  src={product.imageURL} />
-                          <Card.Body>
-                            <Card.Title>{product.productTitle}</Card.Title>
-                            <Card.Title>Rs-/{product.productPrice}</Card.Title>
+             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style={{background:"white", color:"black",marginTop:"10px",display:"flex",justifyContent:"center",cursor:"pointer" }}>
+             <Card   style={{ width: '10rem'}}>
+                   <Card.Img style={{height:"120px"}} variant="top"  src={product.imageURL ? product.imageURL : <><img src={loadingimg}/></>} />
+                   <Card.Body>
+                     <Card.Title>{product.productTitle}</Card.Title>
+                     <Card.Title>Rs-/{product.productPrice}</Card.Title>
+                    
+                     <Button class="m-auto" style={{backgroundColor:"#058b80",marginLeft:"4px"}} href={`ShowMarket/${category.categoryName}`}>Show Markets</Button>
+                   </Card.Body>
+                 </Card>
+                 </div>
+            //   <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style={{background:"white", color:"black",marginTop:"10px",display:"flex",justifyContent:"center" }}>
+                    // <Card   onClick={()=> alert("go to app")} style={{ width: '16rem'}}>
+                    //       <Card.Img style={{height:"220px"}} variant="top"  src={product.imageURL} />
+                    //       <Card.Body>
+                    //         <Card.Title>{product.productTitle}</Card.Title>
+                    //         <Card.Title>Rs-/{product.productPrice}</Card.Title>
                            
-                          </Card.Body>
-                        </Card>
-                        </div>
+                    //       </Card.Body>
+                    //     </Card>
+            //             </div>
                         
                         
-                        ))}
-                        
+                        )): <img src={loadingimg}/>
+                        }
+                        </section>
 
                         {/* footer  */}
                         <div class="row" style={{background:"#CCFF33", color:"black",fontWeight:"bold",textAlign:"center"}}>
     <br/>
     <div class="col-lg-4 col-md-6">
       <img src="/img/logo.jpeg" style={{ height:"64px"}}/>
-    <h6>you can visit the any shop of any market at 13karachi you can visit the any <br/>
-    you can visit the any shop of any market at 13karachi
-    you can <br/>
-    you can visit the any shop of any market at 13karachi you can visit the any <br/>  you can visit the any shop of any market at 13karachi    you can visit the any </h6>   
+    <h6>We brought new and easy concept for SELLERS & BUYERS  <br/>
+    Now you can Purchase From your own nearest and self thought willingly market just with a click<br/>  you can visit the any shop of any market at 13karachi    you can visit the any </h6>   
     </div>
     <div class="col-lg-4 col-md-6">
      <h1>UseFul Links</h1>
-     <p>Home</p>
-     <p>sign up</p>
-     <p>Login</p>
+     <p onClick={()=>history.push('/')} style={{cursor:"pointer"}}>Home</p>
+     <p onClick={()=>history.push('/userregister')} style={{cursor:"pointer"}}>sign up</p>
+     <p onClick={()=>history.push('/Login')} style={{cursor:"pointer"}}>Login</p>
      {/* <p>About us</p> */}
     </div>
     <div class="col-lg-4 col-md-6">
 <h1>Contact Us</h1>
-<p><FacebookIcon/></p>
-<p><InstagramIcon/></p>
-<p><AppBlockingIcon/></p>
+<a style={{cursor:"pointer"}}href='https://www.facebook.com/people/13Karachi/100082254692576/?mibextid=ZbWKwL'><FacebookIcon/></a>
+<a style={{cursor:"pointer"}}href='https://www.instagram.com/13karachi/'><InstagramIcon/></a>
+<a style={{cursor:"pointer"}}href=''><AppBlockingIcon/></a>
     </div>
   
     {/* <Layout>

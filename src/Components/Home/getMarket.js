@@ -119,7 +119,7 @@ getrole()
                         {/* Rs.{product.productPrice}/-  */}
 
                             </Card.Text>
-                            <Button  variant="primary" href={`../ShowShops/${product.marketName}`}>Show Shops</Button> 
+                            <Button  variant="primary" onClick={()=>alert("go to app")}>Show Shops</Button> 
                         </Card.Body>
                         </Card>
                         <br />

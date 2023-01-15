@@ -5,6 +5,8 @@ import Welcome from './Components/Welcome/Welcome';
 import Add from './Components/Add'
 import Login from './Components/Login/Login';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
+
 
 import './Components/Main/Main.css'
 import './Components/Welcome/Welcome.css'
@@ -27,6 +29,8 @@ function App(){
 return(
 
 <>
+<FloatingWhatsApp chatMessage="welcome to 13karachi"   phoneNumber="03472709786" avatar="/img/logo.jpeg" accountName="13karachi" />
+
 
 
 <br />

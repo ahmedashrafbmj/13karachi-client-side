@@ -137,28 +137,7 @@ return(
     <div class="row">
 
  
-        <div class="col-xs-4">
-
-    <input type="text" class="form-control"  style={{width: 1100}} placeholder="Search Products"  
-    onChange={e=> onChangeHandler(e.target.value)} value={text}/>
-
-
-    {suggestions && suggestions.map((suggestion, i)=>
-        <div key={i} className=" suggestion col-mid-12 justify-content-md-center" onClick={()=> onSuggestHandler(suggestion.productTitle)}>{suggestion.productTitle}
-       
-       <Link to={`Details/${suggestion._id}`}> 
-            <img src= {suggestion.imageURL} ></img> 
-            </Link>
-        <br />
-
-      
-        {suggestion.productPrice}
-        </div>
-    )}
-<br />
-{/* 
-<a class="btn btn-outline-primary" href="#" role="button">Search</a> */}
-    </div>
+   
 
     </div>
 

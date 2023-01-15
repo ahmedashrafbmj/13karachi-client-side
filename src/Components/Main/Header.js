@@ -46,7 +46,7 @@ return(
 <Navbar style={{background:"#CCFF33",fontWeight:"bold"}} expand="lg">
       {/* <Navbar style={{background:"#CCFF33",fontWeight:"bold"}} expand="lg"> */}
       <Container fluid>
-        <Navbar.Brand href="#"><img src="/img/logo2.jpeg " height="49px" /></Navbar.Brand>
+        <Navbar.Brand href="#">logo</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

@@ -94,54 +94,16 @@ return(
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/userregister">Signup As User</Nav.Link>
             <Nav.Link href="/register">Signup As Seller</Nav.Link>
-            <Nav.Link href="/adminOrders">Login</Nav.Link>
+            <Nav.Link href="/Login">Login</Nav.Link>
           </Nav>
           <Nav>
-        {/* <Nav.Link onClick={logout}>Logout</Nav.Link> */}
  
       </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
 
-{/* <nav class="navbar navbar-light fixed-top bg-light">
-<Navbar bg="light" variant={"light"} expand="lg">
-                        <Navbar.Brand href="#">13Karachi</Navbar.Brand>
-                        <Navbar.Toggle aria-controls="navbarScroll" />
-                        <Navbar.Collapse id="navbarScroll">
-                            <Nav
-                                className="mr-auto my-2 my-lg-0"
-                                style={{ maxHeight: '100px' }}
-                                navbarScroll
-                            >
-   
-      
 
-                               
-
-<div className='btn'>
-<a class="btn btn-primary" href="/" role="button">Home</a>
-
-<a class="btn btn-primary" href="/userregister" role="button">Signup User</a>
-
-<a class="btn btn-primary" href="/register" role="button">Signup As a Seller</a>
-
-<a class="btn btn-outline-primary" href="/Login" role="button">Login</a>
-
-
-                    
-               
-
-<span className="cartCount"><Link to="/cart"><img src={cartpic}></img> {items.cartItems.length} </Link></span>
-
-</div>
-
-                            </Nav>
-
-                        </Navbar.Collapse>
-                    </Navbar>
-                    
-                    </nav> */}
 <br />
 <br />
 <br />
@@ -154,31 +116,6 @@ return(
  
         <div class="col-xs-4">
 
-    <input type="text" class="form-control"  style={{width: 1100}} placeholder="Search Products"  
-    onChange={e=> onChangeHandler(e.target.value)} value={text}/>
-
-
-    {suggestions && suggestions.map((suggestion, i)=>
-
-
-            <div key={i} className=" suggestion col-mid-12 justify-content-md-center" onClick={()=> onSuggestHandler(suggestion.productTitle)}>
-  
-            {suggestion.productTitle}   
-            <Link to={`Details/${suggestion._id}`}> 
-            <img src= {suggestion.imageURL} ></img> 
-            </Link>
-        <br />
-
-      
-        {suggestion.productPrice}
-    
-        </div>
-
-        
-    ) }
-<br />
-{/* 
-<a class="btn btn-outline-primary" href="#" role="button">Search</a> */}
     </div>
 
     </div>
