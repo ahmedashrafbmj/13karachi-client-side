@@ -18,7 +18,7 @@
     font-weight: 600;
     font-size: 29px;
     line-height: 1.5;
-    font-family: cursive;
+    /* font-family: cursive; */
 }
 :where(.css-dev-only-do-not-override-9ntgx0).ant-drawer .ant-drawer-body {
     flex: 1;
@@ -28,7 +28,7 @@
     overflow: auto;
     background: #827676;   
     color: black;
-    font-family: cursive !important;
+    /* font-family: cursive !important; */
 
 }
 body {
@@ -36,7 +36,7 @@ body {
     font-family:cursive;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: cursive !important;
+    /* font-family: cursive !important; */
 
   }
   
@@ -59,7 +59,7 @@ body {
     line-height:3;
     cursor: pointer;
     color: white !important;
-    font-family: cursive !important;
+    /* font-family: cursive !important; */
 
 }
 a {
@@ -69,7 +69,7 @@ a {
     font-weight: bold;
     margin: auto;
     margin-left: 20px;
-    font-family: cursive !important;
+    /* font-family: cursive !important; */
     
 
 }
