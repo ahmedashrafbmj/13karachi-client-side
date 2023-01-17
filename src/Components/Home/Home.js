@@ -20,6 +20,7 @@ import Product from './Product';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import AppBlockingIcon from '@mui/icons-material/AppBlocking';
+require('react-img-carousel/lib/carousel.css');
 
 
 
@@ -149,7 +150,7 @@ const Home = (props) => {
             const datacategory = await res.json();
             console.log(datacategory);
 
-            const countCategory = datacategory.length;
+            const countCategory = datacategory?.length;
 
             setCategory(datacategory);
 
@@ -171,7 +172,7 @@ const Home = (props) => {
 
             const datasubcategory = await res.json();
             console.log(datasubcategory);
-            const countsubCategory = datasubcategory.length;
+            const countsubCategory = datasubcategory?.length;
 
             setsubCategory(datasubcategory);
             setsubCategoryCount(countsubCategory)
@@ -192,12 +193,11 @@ const Home = (props) => {
 
         console.log(datacarousel, 'carousel');
 
-        // setSliderData(datacarousel.map((e, i) => setSliderData(e[]?.imageURL)));
-        setSliderData(datacarousel[0].imageURL[0]);
+        setSliderData(datacarousel.map((e,i)=>e?.imageURL));
 
     };
     
-console.log(SliderData,"SliderData")
+    console.log(SliderData,"SliderData")
 
 
     console.log(products, "products")
@@ -301,7 +301,7 @@ console.log(SliderData,"SliderData")
 
 
 
-<img  className='bannerImg' src={SliderData} />
+{/* <img  className='bannerImg' src={SliderData} /> */}
 
             <Carousel
                 style={{ zIndex: 1 }}
@@ -310,10 +310,17 @@ console.log(SliderData,"SliderData")
                 lazyLoad={true}
                 height={"200px"}
                 slideWidth={"100%"}
-                slideHeight={"200"}
+                slideHeight={"100"}
                 autoplay={true}
-                cellPadding={5}>
-                                                    <img  className='bannerImg' src={SliderData} />
+                cellPadding={10}>
+                <img src={SliderData[0]} width="100%" style={{height:"50vh"}}/>
+                <img src={SliderData[1]} width="100%" style={{height:"50vh"}}/>
+                <img src={SliderData[2]} width="100%" style={{height:"50vh"}}/>
+                <img src={SliderData[3]} width="100%" style={{height:"50vh"}}/>
+                    {/* {SliderData.length > 0 && SliderData?.map((elem,i)=>{
+                        <img  className='bannerImg' src={elem?.length > 0 ? elem?.imageURL[0] : "null"} />
+
+                    })} */}
 
               
 
@@ -403,7 +410,7 @@ console.log(SliderData,"SliderData")
                 <div class="col-lg-4 col-md-6">
                     <img src="/img/logo.jpeg" style={{ height: "64px" }} />
                     <h6>We brought new and easy concept for SELLERS & BUYERS  <br />
-                        Now you can Purchase From your own nearest and self thought willingly market just with a click<br />  you can visit the any shop of any market at 13karachi    you can visit the any </h6>
+                        Now you can Purchase From your own nearest and self thought willingly market just with a click<br />  you can visit the any shop of any market at 13karachi  </h6>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h1>UseFul Links</h1>
