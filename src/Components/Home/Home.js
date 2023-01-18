@@ -3,7 +3,7 @@ import HomeNavbar from './HomeNavbar';
 import { Link, useHistory } from 'react-router-dom';
 import UserNavbar from './UserNavbar';
 import { Button, Card, Container, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import banner1 from '../images/banner1.jpg'
 import banner2 from '../images/banner2.jpg'
 import { useDispatch } from 'react-redux';
@@ -60,7 +60,7 @@ const Home = (props) => {
 
         const findEmail2 = localStorage.getItem('user');
 
-        const res = await fetch(`https://web-production-6504.up.railway.app/api/allbookbyemail/${findEmail2}`, {
+        const res = await fetch(`https://ahmed8364.herokuapp.com/api/allbookbyemail/${findEmail2}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -81,7 +81,7 @@ const Home = (props) => {
 
         let femail = localStorage.getItem('user');
 
-        const res3 = await fetch(`https://web-production-6504.up.railway.app/api/postbyemailsignup/${femail}`, {
+        const res3 = await fetch(`https://ahmed8364.herokuapp.com/api/postbyemailsignup/${femail}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -111,7 +111,7 @@ const Home = (props) => {
 
 
         const fetchProducts = async () => {
-            const res = await fetch('https://web-production-6504.up.railway.app/api/allpostdata');
+            const res = await fetch('https://ahmed8364.herokuapp.com/api/allpostdata');
             const data = await res.json();
             console.log(data, "data");
             setProducts(data);
@@ -128,7 +128,7 @@ const Home = (props) => {
     useEffect(() => {
 
         const fetcharea = async () => {
-            const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetarea`);
+            const res = await fetch(`https://ahmed8364.herokuapp.com/api/allgetarea`);
 
             const dataarea = await res.json();
             console.log(dataarea);
@@ -145,7 +145,7 @@ const Home = (props) => {
 
 
         const fetchCategory = async () => {
-            const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetcategory`);
+            const res = await fetch(`https://ahmed8364.herokuapp.com/api/allgetcategory`);
 
             const datacategory = await res.json();
             console.log(datacategory);
@@ -168,7 +168,7 @@ const Home = (props) => {
     useEffect(() => {
 
         const fetchsubCategory = async () => {
-            const res = await fetch('https://web-production-6504.up.railway.app/api/allgetsubcategory');
+            const res = await fetch('https://ahmed8364.herokuapp.com/api/allgetsubcategory');
 
             const datasubcategory = await res.json();
             console.log(datasubcategory);
@@ -187,7 +187,7 @@ const Home = (props) => {
 
 
     const fetchCarousel = async () => {
-        const res = await fetch('https://web-production-6504.up.railway.app/api/allgetcarousel');
+        const res = await fetch('https://ahmed8364.herokuapp.com/api/allgetcarousel');
 
         const datacarousel = await res.json();
 
@@ -408,12 +408,12 @@ const Home = (props) => {
             <div class="row" style={{ background: "#CCFF33", color: "black", fontWeight: "bold", textAlign: "center" }}>
                 <br />
                 <div class="col-lg-4 col-md-6">
-                    <img src="/img/logo.jpeg" style={{ height: "64px" }} />
-                    <h6>We brought new and easy concept for SELLERS & BUYERS  <br />
+                <img src="/img/13karachi.png" style={{height:"60px"}}/>
+                    <h6>We brought new and easy concept for SELLERS & BUYERS 
                         Now you can Purchase From your own nearest and self thought willingly market just with a click<br />  you can visit the any shop of any market at 13karachi  </h6>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <h1>UseFul Links</h1>
+                    <h1>Useful Links</h1>
                     <p onClick={() => history.push('/')} style={{ cursor: "pointer" }}>Home</p>
                     <p onClick={() => history.push('/userregister')} style={{ cursor: "pointer" }}>sign up</p>
                     <p onClick={() => history.push('/Login')} style={{ cursor: "pointer" }}>Login</p>

@@ -21,7 +21,7 @@ const AllOrderUsers=(props)=>{
 const getdata = async () => {
 
 
-    const res = await fetch(`https://web-production-6504.up.railway.app/api/allpostbook`, {
+    const res = await fetch(`https://ahmed8364.herokuapp.com/api/allpostbook`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -82,7 +82,7 @@ const updatePost=(id)=>{
     
 
     const headers = { "Content-Type": "application/json" };
-    axios.patch(`https://web-production-6504.up.railway.app/api/ordersupdate/${id}`,{
+    axios.patch(`https://ahmed8364.herokuapp.com/api/ordersupdate/${id}`,{
 
         paymentstatus: productDetail.paymentstatus,
 
@@ -109,7 +109,7 @@ console.log('error',err)
 
 const deletedata = async (id) => {
 
-    const res2 = await fetch(`https://web-production-6504.up.railway.app/api/deleteorders/${id}`, {
+    const res2 = await fetch(`https://ahmed8364.herokuapp.com/api/deleteorders/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"

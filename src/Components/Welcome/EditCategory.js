@@ -30,7 +30,7 @@ const { id } = useParams("");
 
     const getdata = async () => {
 
-        const res = await fetch(`https://web-production-6504.up.railway.app/api/catid/${id}`, {
+        const res = await fetch(`https://ahmed8364.herokuapp.com/api/catid/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -78,7 +78,7 @@ const updatePost=()=>{
     
 
         const headers = { "Content-Type": "application/json" };
-        axios.patch(`https://web-production-6504.up.railway.app/api/catupdate/${id}`,{
+        axios.patch(`https://ahmed8364.herokuapp.com/api/catupdate/${id}`,{
             categoryName:productDetail.categoryName,
             imageURL:productDetail.imageURL,
 

@@ -77,7 +77,7 @@ const RoomDetails=(props)=>{
 
 
     const fetchDetails = async () => {
-        const res = await fetch(`https://web-production-6504.up.railway.app/api/getuser/${id}`);
+        const res = await fetch(`https://ahmed8364.herokuapp.com/api/getuser/${id}`);
         const data = await res.json();
         console.log(data);
         setHotel(data);
@@ -86,7 +86,7 @@ const RoomDetails=(props)=>{
     };
    
     const fetchDelivered = async () => {
-        const res = await fetch(`https://web-production-6504.up.railway.app/api/delivered`);
+        const res = await fetch(`https://ahmed8364.herokuapp.com/api/delivered`);
         const dataDelivered = await res.json();
         console.log(dataDelivered, 'fetch Delivered');
         setDelivered(dataDelivered);

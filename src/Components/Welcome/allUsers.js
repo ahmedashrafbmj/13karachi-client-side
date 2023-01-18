@@ -24,7 +24,7 @@ const AllUsers=(props)=>{
 const getdata = async () => {
 
 
-    const res = await fetch(`https://web-production-6504.up.railway.app/api/allsignup`, {
+    const res = await fetch(`https://ahmed8364.herokuapp.com/api/allsignup`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -67,7 +67,7 @@ const getrole=()=>{
     
 
     const headers = { "Content-Type": "application/json" };
-    axios.patch(`https://web-production-6504.up.railway.app/api/profileupdate/${id}`,{
+    axios.patch(`https://ahmed8364.herokuapp.com/api/profileupdate/${id}`,{
 
         accountsstatus: productDetail.accountsstatus,
 
@@ -109,7 +109,7 @@ useEffect(()=>{
 
 const deletedata = async (id) => {
 
-    const res2 = await fetch(`https://web-production-6504.up.railway.app/api/deletesignup/${id}`, {
+    const res2 = await fetch(`https://ahmed8364.herokuapp.com/api/deletesignup/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"

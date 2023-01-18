@@ -48,7 +48,7 @@ const logout=()=>{
     useEffect(() => {
 
         const fetchProducts = async () => {
-            const res = await fetch('https://web-production-6504.up.railway.app/api/allpostdata');
+            const res = await fetch('https://ahmed8364.herokuapp.com/api/allpostdata');
             const data = await res.json();
             console.log(data, "data");
             setProducts(data);
@@ -89,7 +89,7 @@ return(
 
 <nav class="navbar navbar-light fixed-top bg-light">
 <Navbar  bg="light" variant={"light"} expand="lg">
-                        <Navbar.Brand href="#">13Karachi</Navbar.Brand>
+                        <Navbar.Brand href="#"><img src="/img/13karachi.png" style={{height:"60px"}}/></Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
                         <Navbar.Collapse id="navbarScroll">
                             <Nav

@@ -75,7 +75,7 @@ const uploadImage = async e =>{
                 else{
  
             const headers = { "Content-Type": "application/json" };
-            axios.post(`https://web-production-6504.up.railway.app/api/signup`,{
+            axios.post(`https://ahmed8364.herokuapp.com/api/signup`,{
                 email:register.email,
                 password:register.password,
                 role: "Admin",
@@ -137,7 +137,7 @@ const uploadImage = async e =>{
          useEffect(() => {
 
             const fetcharea = async () => {
-                const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetarea`);
+                const res = await fetch(`https://ahmed8364.herokuapp.com/api/allgetarea`);
         
                 const dataarea = await res.json();
                 console.log(dataarea);
@@ -154,7 +154,7 @@ const uploadImage = async e =>{
      
 
             const fetchareaName = async () => {
-                const res = await fetch(`https://web-production-6504.up.railway.app/api/getareaname/${register.area}`);
+                const res = await fetch(`https://ahmed8364.herokuapp.com/api/getareaname/${register.area}`);
         
                 const dataareaname = await res.json();
                 console.log(dataareaname);

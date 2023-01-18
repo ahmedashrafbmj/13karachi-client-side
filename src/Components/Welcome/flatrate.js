@@ -29,7 +29,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`https://web-production-6504.up.railway.app/api/allpostflat`,{
+        axios.post(`https://ahmed8364.herokuapp.com/api/allpostflat`,{
             flat:categoryDetail.flat,
            
             userEmail: localStorage.getItem('user'),
@@ -88,7 +88,7 @@ useEffect(() => {
     
 
         const headers = { "Content-Type": "application/json" };
-        axios.patch(`https://web-production-6504.up.railway.app/api/flatupdate/6349c7e9d21e304d9e00a547`,{
+        axios.patch(`https://ahmed8364.herokuapp.com/api/flatupdate/6349c7e9d21e304d9e00a547`,{
     
             flat: categoryDetail.flat,
     

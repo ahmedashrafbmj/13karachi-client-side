@@ -45,7 +45,7 @@ const addPost=()=>{
     
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`https://web-production-6504.up.railway.app/api/allpostcarousel`,{
+        axios.post(`https://ahmed8364.herokuapp.com/api/allpostcarousel`,{
             imageURL: image,
             // imageURL:categoryDetail.imageURL,
             userEmail: localStorage.getItem('user'),

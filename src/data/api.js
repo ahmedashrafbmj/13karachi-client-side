@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = 'https://web-production-6504.up.railway.app/api/';
+const apiUrl = 'https://ahmed8364.herokuapp.com/api/';
 
 export const singleFileUpload = async (data, options) => {
     try {

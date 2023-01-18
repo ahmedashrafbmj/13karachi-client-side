@@ -30,7 +30,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`https://web-production-6504.up.railway.app/api/allpostcategory`,{
+        axios.post(`https://ahmed8364.herokuapp.com/api/allpostcategory`,{
             categoryName:categoryDetail.categoryName,
             imageURL:categoryDetail.imageURL,
             userEmail: localStorage.getItem('user'),

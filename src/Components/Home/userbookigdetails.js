@@ -31,7 +31,7 @@ const Userbookingdetails=(props)=>{
   
       const getdata = async () => {
   
-          const res = await fetch(`https://web-production-6504.up.railway.app/api/getbookuserid/${id}`, {
+          const res = await fetch(`https://ahmed8364.herokuapp.com/api/getbookuserid/${id}`, {
               method: "GET",
               headers: {
                   "Content-Type": "application/json"

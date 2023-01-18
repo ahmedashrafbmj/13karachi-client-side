@@ -30,7 +30,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`https://web-production-6504.up.railway.app/api/allpostsubcategory`,{
+        axios.post(`https://ahmed8364.herokuapp.com/api/allpostsubcategory`,{
             categoryName:categoryDetail.categoryName,
             subcategoryName:categoryDetail.subcategoryName,
             userEmail: localStorage.getItem('user'),
@@ -57,7 +57,7 @@ history.push('/Welcome')
 useEffect(() => {
 
     const fetchCategory = async () => {
-        const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetcategory`);
+        const res = await fetch(`https://ahmed8364.herokuapp.com/api/allgetcategory`);
 
         const datacategory = await res.json();
         console.log(datacategory);

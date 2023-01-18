@@ -1,6 +1,8 @@
 body {
   margin: 0;
   /* font-family:cursive; */
+  /* overflow-y: hidden; */
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

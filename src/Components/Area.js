@@ -28,7 +28,7 @@ const addPost=()=>{
     else{
 
         const headers = { "Content-Type": "application/json" };
-        axios.post(`https://web-production-6504.up.railway.app/api/allpostarea`,{
+        axios.post(`https://ahmed8364.herokuapp.com/api/allpostarea`,{
             areaName:area.areaName,
             // imageURL:categoryDetail.imageURL,
             userEmail: localStorage.getItem('user'),

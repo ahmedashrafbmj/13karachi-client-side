@@ -52,7 +52,7 @@ const Login=(props)=>{
                 }else{
  
             const headers = { "Content-Type": "application/json" };
-            axios.post(`https://web-production-6504.up.railway.app/api/signin`,{
+            axios.post(`https://ahmed8364.herokuapp.com/api/signin`,{
                 
                 email:data.email,
                 password:data.password
@@ -130,7 +130,7 @@ const getrole = async () => {
     
 
 
-    const res3 = await fetch(`https://web-production-6504.up.railway.app/api/postbyemailsignup/${data.email}`,{
+    const res3 = await fetch(`https://ahmed8364.herokuapp.com/api/postbyemailsignup/${data.email}`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json"

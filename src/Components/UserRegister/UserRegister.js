@@ -37,7 +37,7 @@ const UserRegister=(props)=>{
                 else{
  
             const headers = { "Content-Type": "application/json" };
-            axios.post('https://web-production-6504.up.railway.app/api/signup',{
+            axios.post('https://ahmed8364.herokuapp.com/api/signup',{
                 email:register.email,
                 password:register.password,
                 role: "User",

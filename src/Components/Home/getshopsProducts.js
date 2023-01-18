@@ -36,7 +36,7 @@ const [roleau, setroleau] = useState ('');
 
         const fetchMarkets = async () => {
             setLoading(true)
-            const res = await fetch(`https://web-production-6504.up.railway.app/api/getshopsproducts/${hotelname}`);
+            const res = await fetch(`https://ahmed8364.herokuapp.com/api/getshopsproducts/${hotelname}`);
 
             const data = await res.json();
             console.log(data);

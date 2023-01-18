@@ -319,7 +319,7 @@ const getdata = async () => {
 
     // /api/allpostdata
 
-    const res = await fetch(`https://web-production-6504.up.railway.app/api/postbyemail/${findEmail2}`, {
+    const res = await fetch(`https://ahmed8364.herokuapp.com/api/postbyemail/${findEmail2}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"

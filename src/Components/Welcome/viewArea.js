@@ -26,13 +26,13 @@ const ViewArea=(props)=>{
 const getdata = async () => {
 
     const findEmail2 = localStorage.getItem('user'); 
-    // http://localhost:4000https://web-production-6504.up.railway.app/api/allpostdata
+    // http://localhost:4000https://ahmed8364.herokuapp.com/api/allpostdata
 
-    // `http://localhost:4000https://web-production-6504.up.railway.app/api/postbyemail/${useremail}`
+    // `http://localhost:4000https://ahmed8364.herokuapp.com/api/postbyemail/${useremail}`
 
-    // https://web-production-6504.up.railway.app/api/allpostdata
+    // https://ahmed8364.herokuapp.com/api/allpostdata
 
-    const res = await fetch(`https://web-production-6504.up.railway.app/api/allgetarea`, {
+    const res = await fetch(`https://ahmed8364.herokuapp.com/api/allgetarea`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -48,13 +48,13 @@ const getdata = async () => {
 
 
 const gethotelname = async () => {
-    // http://localhost:4000https://web-production-6504.up.railway.app/api/allpostdata
+    // http://localhost:4000https://ahmed8364.herokuapp.com/api/allpostdata
 
-    // `http://localhost:4000https://web-production-6504.up.railway.app/api/postbyemail/${useremail}`
+    // `http://localhost:4000https://ahmed8364.herokuapp.com/api/postbyemail/${useremail}`
     const findEmail = localStorage.getItem('user'); 
     console.log(findEmail)
 
-    const res3 = await fetch(`https://web-production-6504.up.railway.app/api/postbyemailsignup/${findEmail}`,{
+    const res3 = await fetch(`https://ahmed8364.herokuapp.com/api/postbyemailsignup/${findEmail}`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -157,7 +157,7 @@ const updatePost=(id)=>{
     
 
         const headers = { "Content-Type": "application/json" };
-        axios.patch(`https://web-production-6504.up.railway.app/api/areaupdate/${id}`,{
+        axios.patch(`https://ahmed8364.herokuapp.com/api/areaupdate/${id}`,{
     
                 imageURL: image,
           
@@ -184,9 +184,9 @@ getdata()
 ///delelte single data
 
 const deletedata = async (id) => {
-    // http://localhost:4000https://web-production-6504.up.railway.app/api/allpostdata
+    // http://localhost:4000https://ahmed8364.herokuapp.com/api/allpostdata
 
-    const res2 = await fetch(`https://web-production-6504.up.railway.app/api/deletearea/${id}`, {
+    const res2 = await fetch(`https://ahmed8364.herokuapp.com/api/deletearea/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
