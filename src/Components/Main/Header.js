@@ -33,7 +33,6 @@ const logout=()=>{
           });
   
           // Makes sure the page reloads. Changes are only visible after you refresh.
-          window.location.reload(true);
       }
     
 

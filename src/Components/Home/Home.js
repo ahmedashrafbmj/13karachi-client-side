@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import HomeNavbar from './HomeNavbar';
 import { Link, useHistory } from 'react-router-dom';
 import UserNavbar from './UserNavbar';
-import { Button, Card, Container, Row, Col } from 'react-bootstrap';
+import { Button, Card} from 'react-bootstrap';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import banner1 from '../images/banner1.jpg'
 import banner2 from '../images/banner2.jpg'

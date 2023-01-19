@@ -8,8 +8,6 @@ function AccountStatus(){
     const history = useHistory()
     const logout=()=>{
        
-            window.location.reload(true)
-            alert("logout successfully")
 
         localStorage.removeItem('token')
         localStorage.removeItem('user')
