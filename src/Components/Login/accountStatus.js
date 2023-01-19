@@ -7,17 +7,44 @@ function AccountStatus(){
 
     const history = useHistory()
     const logout=()=>{
+       
+            window.location.reload(true)
+            alert("logout successfully")
 
         localStorage.removeItem('token')
         localStorage.removeItem('user')
-    
         localStorage.removeItem('role')
-        localStorage.removeItem('hotel')
+        // localStorage.removeItem('hotel')
+
+        localStorage.removeItem('price')
+        localStorage.removeItem('userhotel')
+        localStorage.removeItem('imageURL')
+        localStorage.removeItem('hotelemail')
+        localStorage.removeItem('accountstatus')
+
+        localStorage.removeItem('contact')
+        localStorage.removeItem('market')
+        localStorage.removeItem('address')
+        localStorage.removeItem('area')
+
     
         localStorage.removeItem('accountstatus')
+        if('caches' in window){
+            caches.keys().then((names) => {
+                    // Delete all the cache files
+                    names.forEach(name => {
+                        caches.delete(name);
+                    })
+                });
+        
+                // Makes sure the page reloads. Changes are only visible after you refresh.
+                // window.location.reload(true);
+                history.push('/')
+            }
     
-        history.push('/')
+       
     }
+   
     
     return (
         <>

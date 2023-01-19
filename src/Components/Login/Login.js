@@ -5,11 +5,14 @@ import Link from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import {add} from '../../store/orderslice';
+import loadingimg from '../images/loading.gif'
+
 
 
 const Login=(props)=>{
 
     
+    const [loading, setLoading] = useState(false);
 
     const [userRole, setRole] = useState([""]);
 
@@ -30,6 +33,49 @@ const Login=(props)=>{
     });
 
 
+    const getrole = async () => {
+    
+
+
+        const res3 = await fetch(`https://ahmed8364.herokuapp.com/api/postbyemailsignup/${data.email}`,{
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+            
+        });
+    
+    
+       
+        const role = await res3.json();
+        console.log(role,"role")
+    
+    
+    
+        setRole(role[0]?.role);
+    
+        setuserContact(role[0]?.contact);
+        setuserAddress(role[0]?.address);
+    
+        setuserArea(role[0]?.area);
+        setuserMarket(role[0]?.marketname);
+        setAccountStatus(role[0]?.accountsstatus)
+    
+        console.log(accountStatus, 'status')
+    
+        localStorage.setItem('role', [userRole])
+    
+        localStorage.setItem('accountstatus', [accountStatus])
+    
+        localStorage.setItem('contact', [userContact])
+        localStorage.setItem('address', [userAddress])
+    
+        localStorage.setItem('area', [userArea])
+        localStorage.setItem('market', [userMarket])
+    
+    }
+
+
 
 
     
@@ -37,6 +83,9 @@ const Login=(props)=>{
     const history = useHistory()
 
     const loginc =()=>{
+        setLoading(true)
+        getrole()
+
 
         if(!data.email.trim()){
             alert("Enter Email");
@@ -44,9 +93,10 @@ const Login=(props)=>{
             else if(!data.password.trim()){
                 alert("Enter password");
             }
-                else if(data.message === 'Password Incorrect!'){
+                else if(data.message ===  'Password Incorrect!'  ||  data.message === "Email Not Foun" ){
                     // console.log(response.data.message)
-                    // alert(response.data.message);
+                    alert(
+                        data.message);
                 
 
                 }else{
@@ -63,11 +113,11 @@ const Login=(props)=>{
   .then((success)=>{
     console.log('success',success)
   
+    localStorage.setItem('role', [userRole]) 
     localStorage.setItem('token', 'thisismytoken')
     localStorage.setItem('user', data.email)
     
     console.log(userRole, 'role');
-    localStorage.setItem('role', [userRole]) 
 
    const roleua = localStorage.getItem('role')
 
@@ -76,7 +126,7 @@ const Login=(props)=>{
  
    const roleua4 = localStorage.getItem('accountstatus');
 
-     if (roleua === 'Admin'  && roleua4 === 'Enabled'){
+     if (localStorage.getItem('role') === 'Admin'  && localStorage.getItem('accountstatus') === 'Enabled'){
     
         history.push('/Welcome')
     }
@@ -93,26 +143,18 @@ const Login=(props)=>{
     }
     
     
-    else{
+  
+    setLoading(false)
 
-         if (!citem){
-
-            history.push('/')
-    
-        }else{
-            history.push('/Booking')
-        }
-        
-       
-    }
 
 
 
   }) 
 
     .catch((err)=>{
-        alert("Something Went Wrong")
-        console.log('error',err)
+        alert(data.message)
+        console.log('error',err
+        )
     
     })
 
@@ -126,46 +168,7 @@ const Login=(props)=>{
 
 /////get email with role
 
-const getrole = async () => {
-    
 
-
-    const res3 = await fetch(`https://ahmed8364.herokuapp.com/api/postbyemailsignup/${data.email}`,{
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-        
-    });
-
-
-   
-    const role = await res3.json();
-
-
-
-    setRole(role[0]?.role);
-
-    setuserContact(role[0]?.contact);
-    setuserAddress(role[0]?.address);
-
-    setuserArea(role[0]?.area);
-    setuserMarket(role[0]?.marketname);
-    setAccountStatus(role[0]?.accountsstatus)
-
-    console.log(accountStatus, 'status')
-
-    localStorage.setItem('role', [userRole])
-
-    localStorage.setItem('accountstatus', [accountStatus])
-
-    localStorage.setItem('contact', [userContact])
-    localStorage.setItem('address', [userAddress])
-
-    localStorage.setItem('area', [userArea])
-    localStorage.setItem('market', [userMarket])
-
-}
 
  
 
@@ -222,18 +225,20 @@ const getrole = async () => {
 return(
 
 <>
-
-<div className="l-form">
+{loading ?         <img src={loadingimg} />
+ :
+ 
+ <div className="l-form">
             <form action="" className="form">
                 <h1 className="form__title">Log In</h1>
 
                 <div className="form__div">
-                    <input type="text"  onKeyPress={getrole} className="form__input" placeholder=" "   onChange={e => setData({...data,  email: e.target.value})} />
+                    <input type="text"  className="form__input" placeholder=" "   onChange={e => setData({...data,  email: e.target.value})} />
                     <label className="form__label">Email</label>
                 </div>
 
                 <div className="form__div">
-                    <input type="password" onKeyPress ={getrole} className="form__input" placeholder=" " onChange={ (e)=> {setData({...data, password: e.target.value})} } />
+                    <input type="password"  className="form__input" placeholder=" " onChange={ (e)=> {setData({...data, password: e.target.value})} } />
                     <label  className="form__label">Password</label>
                 </div>
 
@@ -254,6 +259,8 @@ return(
           
                 
         </div>
+ }
+
         
 </>
 
