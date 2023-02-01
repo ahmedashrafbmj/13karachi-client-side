@@ -4,19 +4,13 @@ import { Link, useHistory } from 'react-router-dom';
 import UserNavbar from './UserNavbar';
 import { Button, Card} from 'react-bootstrap';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import banner1 from '../images/banner1.jpg'
-import banner2 from '../images/banner2.jpg'
 import { useDispatch } from 'react-redux';
 import { add } from '../../store/orderslice';
 // import { add } from '../../store/cartSlice';
-import { addToCart } from "../../store/cartSlice";
 // import Slider from '../slider';
 import Carousel from 'react-img-carousel';
 import Slide from './Slide';
 import loadingimg from '../images/loading.gif'
-import Products from '../Products'
-// import ImageSlider from './ImageSlider';
-import Product from './Product';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import AppBlockingIcon from '@mui/icons-material/AppBlocking';
@@ -77,30 +71,30 @@ const Home = (props) => {
     }
 
 
-    const getroleauth = async () => {
+    // const getroleauth = async () => {
 
-        let femail = localStorage.getItem('user');
+    //     let femail = localStorage.getItem('user');
 
-        const res3 = await fetch(`https://ahmed8364.herokuapp.com/api/postbyemailsignup/${femail}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
+    //     const res3 = await fetch(`https://ahmed8364.herokuapp.com/api/postbyemailsignup/${femail}`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
 
-        });
-
-
-
-        const role = await res3.json();
-
-        setAccountStatus(role[0]?.accountsstatus)
-
-        console.log(role[0]?.accountsstatus, 'status')
-
-        localStorage.setItem('accountstatus', [accountStatus]);
+    //     });
 
 
-    }
+
+    //     const role = await res3.json();
+
+    //     setAccountStatus(role[0]?.accountsstatus)
+
+    //     console.log(role[0]?.accountsstatus, 'status')
+
+    //     localStorage.setItem('accountstatus', [accountStatus]);
+
+
+    // }
 
 
 
@@ -141,49 +135,49 @@ const Home = (props) => {
 
     }, []);
 
-    useEffect(() => {
+    // useEffect(() => {
 
 
-        const fetchCategory = async () => {
-            const res = await fetch(`https://ahmed8364.herokuapp.com/api/allgetcategory`);
+    //     const fetchCategory = async () => {
+    //         const res = await fetch(`https://ahmed8364.herokuapp.com/api/allgetcategory`);
 
-            const datacategory = await res.json();
-            console.log(datacategory);
+    //         const datacategory = await res.json();
+    //         console.log(datacategory);
 
-            const countCategory = datacategory?.length;
+    //         const countCategory = datacategory?.length;
 
-            setCategory(datacategory);
+    //         setCategory(datacategory);
 
-            setCategoryCount(countCategory)
+    //         setCategoryCount(countCategory)
 
-            console.log(countCategory, 'category count')
+    //         console.log(countCategory, 'category count')
 
-        };
+    //     };
 
-        fetchCategory()
+    //     fetchCategory()
 
-    }, [accountStatus]);
+    // }, [accountStatus]);
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const fetchsubCategory = async () => {
-            const res = await fetch('https://ahmed8364.herokuapp.com/api/allgetsubcategory');
+    //     const fetchsubCategory = async () => {
+    //         const res = await fetch('https://ahmed8364.herokuapp.com/api/allgetsubcategory');
 
-            const datasubcategory = await res.json();
-            console.log(datasubcategory);
-            const countsubCategory = datasubcategory?.length;
+    //         const datasubcategory = await res.json();
+    //         console.log(datasubcategory);
+    //         const countsubCategory = datasubcategory?.length;
 
-            setsubCategory(datasubcategory);
-            setsubCategoryCount(countsubCategory)
+    //         setsubCategory(datasubcategory);
+    //         setsubCategoryCount(countsubCategory)
 
-            console.log(countsubCategory, 'subcategory count')
+    //         console.log(countsubCategory, 'subcategory count')
 
-        };
+    //     };
 
-        fetchsubCategory()
+    //     fetchsubCategory()
 
-    }, []);
+    // }, []);
 
 
     const fetchCarousel = async () => {
@@ -331,7 +325,11 @@ const Home = (props) => {
 
             <br />
             <br />
-            <h1>All Area:</h1>
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1 className="text-center">All Areas</h1>
             <br />
             <br />
             <section style={{ display: "flex", justifyContent: "space-between", textAlign: "center", flexWrap: "wrap", alignItems: "center" }}>
@@ -375,7 +373,7 @@ const Home = (props) => {
 
 
 
-            <h1>All Products</h1>
+            <h1 className="text-center">All Products</h1>
 
             <br />
             <br />
@@ -393,7 +391,7 @@ const Home = (props) => {
                                 <Card.Title>{product.productTitle}</Card.Title>
                                 <Card.Title>Rs-/{product.productPrice}</Card.Title>
 
-                                <Button class="m-auto" style={{ backgroundColor: "#058b80", marginLeft: "4px" }} href={`ShowMarket/${category.categoryName}`}>Show Markets</Button>
+                                <Button class="m-auto" style={{ backgroundColor: "#058b80", marginLeft: "4px" }} onClick={()=>alert("go to app")}>Show Details</Button>
                             </Card.Body>
                         </Card>
                     </div>
@@ -410,7 +408,7 @@ const Home = (props) => {
                 <div class="col-lg-4 col-md-6">
                 <img src="/img/13karachi.png" style={{height:"60px"}}/>
                     <h6>We brought new and easy concept for SELLERS & BUYERS 
-                        Now you can Purchase From your own nearest and self thought willingly market just with a click<br />  you can visit the any shop of any market at 13karachi  </h6>
+                        Now you can Purchase From your own nearest and self willingly market just with a click<br />  you can visit the any shop of any market at 13karachi  </h6>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h1>Useful Links</h1>

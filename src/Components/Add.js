@@ -151,30 +151,12 @@ const Add = (props) => {
 
 
 
-  const totalPurchase = () => {
+  const totalPurchase = (e) => {
 
-    // const sum = multiproducts.reduce((prev, current)=> prev + +current.value[2],0);
-
-    // return prev += +current.value[2]
-
-
-    // }, 0);
-
-    // let arr = [];
-    // arr.push([productDetail.otherQty])
-    // console.log(arr, 'arr')
-    // settotalpcount(arr)
-
-
-    // console.log(totalpcount, ' p array')
-
-    // const sum = totalpcount.reduce((total, current)=> total + +current,0);
-    // console.log(sum, 'sum func')
-    // setOtherTotal(sum)
-    // console.log(othertotal, 'sum func state')
+   
 
     const sum = totalpcount.reduce((total, current) => total + +current, 0);
-    setOtherTotal(sum)
+    setOtherTotal(sum+Number(e))
     console.log(sum, 'sum func')
 
   }
@@ -339,7 +321,10 @@ const Add = (props) => {
 
 
   const addMultiProducts = () => {
+    
 
+    console.log(othertotal,productDetail.productQty)
+    // console.log(typeof(productDetail.productQty))
     // totalPurchase()
     // if (productDetail.productQty  > othertotal ||  othertotal < productDetail.productQty ){  
     //   console.log(productDetail.productQty, 'qty')
@@ -347,17 +332,32 @@ const Add = (props) => {
 
     // }
     //   else{
+      if( productDetail.otherQty > Number(productDetail.productQty)){
+        alert()
+      }
+      else{
+        setMultiprod([...multiproducts, {
+          id: multiproducts.length,
+          value: [productDetail.productColor, productDetail.productSize, productDetail.otherQty]
+        }])
+        settotalpcount(current => [...current, productDetail.otherQty]);
+         const sum = totalpcount.reduce((total, current) => total + +current, 0);
+      setOtherTotal(sum+Number(productDetail.otherQty))
+      console.log(sum, 'sum func')
+      }
 
-    productDetail.productQty <= othertotal ? alert('maximum qty')
-      :
-      setMultiprod([...multiproducts, {
+    // productDetail.otherQty > Number(productDetail.productQty)? alert('maximum qty')
+    //   :
+    //   setMultiprod([...multiproducts, {
+    //     id: multiproducts.length,
+    //     value: [productDetail.productColor, productDetail.productSize, productDetail.otherQty]
+    //   }])
+    //   settotalpcount(current => [...current, productDetail.otherQty]);
+    //    const sum = totalpcount.reduce((total, current) => total + +current, 0);
+    // setOtherTotal(sum+Number(productDetail.otherQty))
+    // console.log(sum, 'sum func')
+    
 
-        id: multiproducts.length,
-        value: [productDetail.productColor, productDetail.productSize, productDetail.otherQty]
-
-      }])
-
-    settotalpcount(current => [...current, productDetail.otherQty]);
 
     // arr.push([...productDetail.otherQty])
     // settotalpcount(arr)
@@ -366,11 +366,14 @@ const Add = (props) => {
 
     // const sum = (multiproducts.reduce((prev, {current})=> prev + parseInt(current.value[2]),0));
     // console.log(sum, 'sum other')
-
-
+    
+    
+    //  
+    // totalPurchase(productDetail.otherQty)
+   
+  
   }
-
-  // totalPurchase()
+console.log(othertotal,"other")
 
 
 
@@ -462,10 +465,7 @@ const Add = (props) => {
 
 
               <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4">Prdouct Weight</label>
-                  <input type="text" class="form-control" onChange={(e) => { setproductDetail({ ...productDetail, productWeight: e.target.value }) }} />
-                </div>
+              
 
                 <div class="form-group col-md-6">
                   <label for="inputContact">Product Qty</label>
@@ -521,7 +521,7 @@ const Add = (props) => {
 
                   <button type="button" class="btn btn-primary" onClick={() => { addMultiProducts() }}>Add Multi Product</button>
                   <br />
-                  <button type="button" class="btn btn-primary mt-3" onClick={() => { totalPurchase() }}>Set Products</button>
+                  {/* <button type="button" class="btn btn-primary mt-3" onClick={() => { totalPurchase() }}>Set Products</button> */}
 
 
                 </div>
@@ -557,7 +557,6 @@ const Add = (props) => {
               </div>
 
 
-              <button type="button" class="btn btn-primary" onClick={() => { addPost() }}>Add Product</button>
             </form>
 
           </div>
@@ -711,6 +710,8 @@ const Add = (props) => {
               </div>
             )}
           </div>
+          <button type="button" class="btn btn-primary" onClick={() => { addPost() }}>Add Product</button>
+
         </div>
       </div>
 
