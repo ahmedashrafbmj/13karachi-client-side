@@ -56,7 +56,7 @@ console.log("get data");
         getdata();
         getrole();
     }, []);
-
+console.log(productDetail,"productDetail")
 
     const [image, setImage] = useState('');
     const [loading, setLoading] = useState(false);

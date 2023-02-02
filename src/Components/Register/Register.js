@@ -13,7 +13,7 @@ const Register=(props)=>{
     marketname: "",
     cnic: "",
     email: "",
-    password: ""
+    password: "",
 
     });
     const history = useHistory()

@@ -129,13 +129,13 @@ const uploadImage = async e =>{
 
 const updatePost=()=>{
     
-alert()
-        const headers = { "Content-Type": "application/json" };
+// alert()
+const headers = { "Content-Type": "application/json" };
         axios.patch(`https://ahmed8364.herokuapp.com/api/updateuser/${id}`,{
             productName:productDetail.productName,
             productPrice:productDetail.productPrice,
-            imageURL:productDetail.imageURL,
-            imageURL:image,
+            imageURL:productDetail.imageURL == "" ? productDetail.imageURL :  productDetail.imageURL,
+            // imageURL:image,
             // userEmail: localStorage.getItem('user'),
             qty:productDetail.qty,
             category:productDetail.category,
@@ -154,7 +154,7 @@ let roleuseradmin = localStorage.getItem('role');
     
     if (roleuseradmin === 'Admin'){
         history.push('/welcome')
-        alert()
+        // alert()
     }
 
     
@@ -193,13 +193,25 @@ return(
     }
 
 
-<div className='Heading'><h1>Edit Products</h1>
+<div className='Heading text-center'><h1>Edit Products</h1>
 
 </div>
 
 
 
 <div className='MainDiva'>
+    <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 
 
 <div className="l-form">
@@ -244,15 +256,7 @@ return(
 
                     }
 
-                <input type='file' name = 'file' onChange = {uploadImage}/>
-                {
-      loading?( //if
-        <h3>Loading ... </h3>
-      ): ( //else
-
-        <img src={image} width={{width: '20px'}} />
-      )
-    }
+              
 
     <br />
     <br />

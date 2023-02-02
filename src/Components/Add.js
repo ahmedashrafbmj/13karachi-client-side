@@ -151,15 +151,15 @@ const Add = (props) => {
 
 
 
-  const totalPurchase = (e) => {
+  // const totalPurchase = (e) => {
 
    
 
-    const sum = totalpcount.reduce((total, current) => total + +current, 0);
-    setOtherTotal(sum+Number(e))
-    console.log(sum, 'sum func')
+  //   const sum = totalpcount.reduce((total, current) => total + +current, 0);
+  //   setOtherTotal(sum+Number(e))
+  //   console.log(sum, 'sum func')
 
-  }
+  // }
 
 
 
@@ -321,56 +321,70 @@ const Add = (props) => {
 
 
   const addMultiProducts = () => {
+    if(!productDetail.productColor && !productDetail.productSize   ){
+      alert("Enter Color and size")
+    }
+    else{
+
+      console.log(othertotal,productDetail.productQty)
+      // console.log(typeof(productDetail.productQty))
+      // totalPurchase()
+      // if (productDetail.productQty  > othertotal ||  othertotal < productDetail.productQty ){  
+      //   console.log(productDetail.productQty, 'qty')
+      //     alert("qty limit")
+  
+      // }
+      //   else{
+        if( productDetail.otherQty   > Number(productDetail.productQty)){
+          console.log(othertotal,"otherQty")
+          alert("Maximun quantity reached")
+        }
+        else{
+          if(othertotal  >= Number(productDetail.productQty)){
+            alert("Maximun quantity reached")
+                    }
+                    else       { setMultiprod([...multiproducts, {
+            id: multiproducts.length,
+            value: [productDetail.productColor, productDetail.productSize, productDetail.otherQty]
+          }])
+          settotalpcount(current => [...current, productDetail.otherQty]);}
+          if(othertotal  >= Number(productDetail.productQty)){
+  alert("Maximun quantity reached")
+          }
+         else{  const sum = totalpcount.reduce((total, current) => total + +current, 0);
+        setOtherTotal(sum+Number(productDetail.otherQty))
+        console.log(sum, 'sum func')}
+        }
+        
+  
+      // productDetail.otherQty > Number(productDetail.productQty)? alert('maximum qty')
+      //   :
+      //   setMultiprod([...multiproducts, {
+      //     id: multiproducts.length,
+      //     value: [productDetail.productColor, productDetail.productSize, productDetail.otherQty]
+      //   }])
+      //   settotalpcount(current => [...current, productDetail.otherQty]);
+      //    const sum = totalpcount.reduce((total, current) => total + +current, 0);
+      // setOtherTotal(sum+Number(productDetail.otherQty))
+      // console.log(sum, 'sum func')
+      
+  
+  
+      // arr.push([...productDetail.otherQty])
+      // settotalpcount(arr)
+      // console.log(arr, 'arr other')
+  
+  
+      // const sum = (multiproducts.reduce((prev, {current})=> prev + parseInt(current.value[2]),0));
+      // console.log(sum, 'sum other')
+      
+      
+      //  
+      // totalPurchase(productDetail.otherQty)
+     
+    }
     
 
-    console.log(othertotal,productDetail.productQty)
-    // console.log(typeof(productDetail.productQty))
-    // totalPurchase()
-    // if (productDetail.productQty  > othertotal ||  othertotal < productDetail.productQty ){  
-    //   console.log(productDetail.productQty, 'qty')
-    //     alert("qty limit")
-
-    // }
-    //   else{
-      if( productDetail.otherQty > Number(productDetail.productQty)){
-        alert()
-      }
-      else{
-        setMultiprod([...multiproducts, {
-          id: multiproducts.length,
-          value: [productDetail.productColor, productDetail.productSize, productDetail.otherQty]
-        }])
-        settotalpcount(current => [...current, productDetail.otherQty]);
-         const sum = totalpcount.reduce((total, current) => total + +current, 0);
-      setOtherTotal(sum+Number(productDetail.otherQty))
-      console.log(sum, 'sum func')
-      }
-
-    // productDetail.otherQty > Number(productDetail.productQty)? alert('maximum qty')
-    //   :
-    //   setMultiprod([...multiproducts, {
-    //     id: multiproducts.length,
-    //     value: [productDetail.productColor, productDetail.productSize, productDetail.otherQty]
-    //   }])
-    //   settotalpcount(current => [...current, productDetail.otherQty]);
-    //    const sum = totalpcount.reduce((total, current) => total + +current, 0);
-    // setOtherTotal(sum+Number(productDetail.otherQty))
-    // console.log(sum, 'sum func')
-    
-
-
-    // arr.push([...productDetail.otherQty])
-    // settotalpcount(arr)
-    // console.log(arr, 'arr other')
-
-
-    // const sum = (multiproducts.reduce((prev, {current})=> prev + parseInt(current.value[2]),0));
-    // console.log(sum, 'sum other')
-    
-    
-    //  
-    // totalPurchase(productDetail.otherQty)
-   
   
   }
 console.log(othertotal,"other")
