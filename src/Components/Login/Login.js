@@ -65,6 +65,7 @@ const Login = (props) => {
     const history = useHistory()
 
     const loginc = () => {
+        console.log(data,"data")
         setLoading(true)
         getrole()
         if (!data.email.trim()) {
@@ -73,10 +74,7 @@ const Login = (props) => {
         else if (!data.password.trim()) {
             alert("Enter password");
         }
-        else if (data.message === 'Password Incorrect!' || data.message === "Email Not Found") {
-            alert(
-                data.message);
-        } else {
+     else {
 
             const headers = { "Content-Type": "application/json" };
             axios.post(`https://ahmed8364.herokuapp.com/api/signin`, {
@@ -87,6 +85,7 @@ const Login = (props) => {
             })
 
                 .then((success) => {
+                    console.log(success,"success")
                     localStorage.setItem('token', 'thisismytoken')
                     localStorage.setItem('user', data.email)
                     const roleua = localStorage.getItem('role')
@@ -110,6 +109,15 @@ const Login = (props) => {
                         history.push('/Welcome2')
 
                     }
+                    else if (roleua === "User"){
+          
+
+                       alert("you are loging as user and you enjoy more on our app Note: Web is available onlly for sellers ")
+                       window.location.href='https://play.google.com/store/apps?hl=en&gl=US';
+                       //    history.push('/')
+            
+                    }
+            
 
 
 
@@ -121,7 +129,15 @@ const Login = (props) => {
                 })
 
                 .catch((err) => {
-                    alert(data.message)
+                    setLoading(false)
+                    if(err?.response?.data?.message === "Password Incorrect!" ) {
+                        alert("Wrong Password")
+                    }
+                    else if (err?.response?.data?.message === "Email Not Found" ){
+                    alert("Invalid Email")
+                    }
+                   
+
                 })
 
         }
@@ -164,11 +180,11 @@ const Login = (props) => {
 
 
 
-        if (!roleua2) {
-            history.push('/login')
+        if (roleua2 === "User") {
+            history.push('/')
         }
 
-        else if (roleua2 === 'Admin' && roleua3 === 'Enabled') {
+        else if (roleua2 === 'Admin' && roleua3 === 'Enabled' || roleua2 === 'User') {
 
             history.push('/Welcome')
         }
@@ -181,6 +197,12 @@ const Login = (props) => {
         else if (roleua2 === 'Super') {
 
             history.push('/Welcome2')
+
+        }
+        else if (userRole === "User"){
+          
+
+            history.push('/')
 
         }
 

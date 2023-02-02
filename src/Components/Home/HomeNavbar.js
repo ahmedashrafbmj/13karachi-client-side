@@ -56,7 +56,7 @@ const HomeNavbar = () => {
                             navbarScroll
                         >
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/userregister">Signup As User</Nav.Link>
+                            <Nav.Link href="/">Signup As User</Nav.Link>
                             <Nav.Link href="/register">Signup As Seller</Nav.Link>
                             <Nav.Link href="/Login">Login</Nav.Link>
                         </Nav>

@@ -278,7 +278,7 @@ const Home = (props) => {
                 )
 
             }
-            {
+            {/* {
 
                 (roleau === 'User' ? <>
                     <UserNavbar />
@@ -291,9 +291,9 @@ const Home = (props) => {
                     </>
                 )
 
-            }
+            } */}
 
-
+<HomeNavbar />
 
 {/* <img  className='bannerImg' src={SliderData} /> */}
 

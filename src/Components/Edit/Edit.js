@@ -129,12 +129,12 @@ const uploadImage = async e =>{
 
 const updatePost=()=>{
     
-
+alert()
         const headers = { "Content-Type": "application/json" };
         axios.patch(`https://ahmed8364.herokuapp.com/api/updateuser/${id}`,{
             productName:productDetail.productName,
             productPrice:productDetail.productPrice,
-            // imageURL:productDetail.imageURL,
+            imageURL:productDetail.imageURL,
             imageURL:image,
             // userEmail: localStorage.getItem('user'),
             qty:productDetail.qty,
@@ -147,12 +147,14 @@ headers,
 
 .then((success)=>{
 console.log('success',success)
+alert()
 
 let roleuseradmin = localStorage.getItem('role');
            console.log(roleuseradmin, 'roleuseradmin')
     
     if (roleuseradmin === 'Admin'){
         history.push('/welcome')
+        alert()
     }
 
     
@@ -224,10 +226,23 @@ return(
                     <label  className="form__label">Product Weight</label>
                 </div>
 
-                <div className="form__div">
+                {/* <div className="form__div">
                     <input type="text" disabled="true" className="form__input" placeholder=" " value={productDetail.imageURL} onChange={ (e) =>{setproductDetail({...productDetail, imageURL: e.target.value })} } />
                     <label  className="form__label"> Image</label>
-                </div>
+                </div> */}
+                 {image ?  <div >
+                                        <img src={ loading ? "Loading ...": image} height="20px"/>
+                                        <label  className="form__label"> Image</label>
+
+                    </div> :  <>
+                    <div >
+                                        <img src={productDetail.imageURL ? productDetail.imageURL : "loading..." } height="20px"/>
+                                        <label  className="form__label"> Image</label>
+
+                    </div>
+                                        </>
+
+                    }
 
                 <input type='file' name = 'file' onChange = {uploadImage}/>
                 {
@@ -279,7 +294,7 @@ return(
 <br/>
 <br/>
 <br/>
-<Footer />
+{/* <Footer /> */}
 </>
 
 

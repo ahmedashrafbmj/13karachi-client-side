@@ -365,7 +365,10 @@ useEffect(()=>{
 }, []);
 
 
-     
+const update = (e)=>{
+    history.push(`/Edit/${e}`)
+
+}
 
 useEffect(()=>{
     const udata = localStorage.getItem('user');    
@@ -529,10 +532,8 @@ return(
 <img src={element.imageURL}alt=""/> 
                 {/* } */}
         </td>
-        <Link to="Edit/${element._id}">
-        <td className={classes.btn} valign="middle">{"Edit"}</td>
+        <td onClick={() => update(element._id)} className={`${classes.btn} mt-4`} valign="middle">Edit</td>
 
-        </Link>
         <td onClick={() => deletedata(element._id)} className={classes.btnDelete} valign="middle"><span className="pe-1">X</span>Delete</td>
     </tr>
                             </>
