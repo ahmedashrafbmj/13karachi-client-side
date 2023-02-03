@@ -178,10 +178,7 @@ const Add = (props) => {
     else if (!productDetail.productPrice.trim()) {
       alert("Enter Price");
     }
-    else if (!productDetail.productWeight.trim()) {
-      alert("Enter Weight");
-
-    }
+   
 
     else if (!productDetail.productQty.trim()) {
       alert("Enter Qty");

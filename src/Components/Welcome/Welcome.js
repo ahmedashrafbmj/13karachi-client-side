@@ -507,9 +507,9 @@ return(
                 <thead className={classes.thead}>
                   <tr>
                     <th scope="col">S.No</th>
-                    <th scope="col">productTitle</th>
-                    <th scope="col">productName</th>
-                    <th scope="col">productId</th>
+                    <th scope="col">product Title</th>
+                    <th scope="col">Category Name</th>
+                    <th scope="col">product Id</th>
                     <th scope="col">Image</th>
                   </tr>
                 </thead>
