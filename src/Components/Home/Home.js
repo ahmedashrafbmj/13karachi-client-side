@@ -329,6 +329,10 @@ const Home = (props) => {
             <br />
             <br />
             <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <h1 className="text-center">All Areas</h1>
             <br />
             <br />

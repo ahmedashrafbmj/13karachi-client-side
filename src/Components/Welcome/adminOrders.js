@@ -8,6 +8,8 @@ import {Table} from 'react-bootstrap';
 import classes from "./Order.module.css"
 // import { Link } from 'react-router-dom';
 import Sheader from '../Main/sHeader';
+import loadingimg from '../images/loading.gif'
+
 
 
 
@@ -17,10 +19,11 @@ import Sheader from '../Main/sHeader';
 const AdminOrders=(props)=>{
     const history = useHistory()
     const [roleau, setroleau] = useState ('');
+    const [loading, setloading] = useState (false);
 
     document.title = " Shop Hub - Admin Orders";
   
-    const [hotel, setHotel] = useState([0]);
+    const [hotel, setHotel] = useState();
 
     const [fOrders, setfOrders] = useState([0]);
 
@@ -31,11 +34,13 @@ const AdminOrders=(props)=>{
        
 
         const fetchDetails= async () => {
+          setloading(true)
             const res = await fetch(`https://ahmed8364.herokuapp.com/api/allpostbook`);
 
             const data = await res.json();
             console.log(data,"data");
             setHotel(data);
+            setloading(false)
         };
         
         fetchDetails()
@@ -66,13 +71,14 @@ const AdminOrders=(props)=>{
     
 
     const fetchOrders =()=>{
+      setloading(true)
         let arr = [];
         const userEmail = localStorage.getItem('user');
-        const totals = hotel.map(p => p.cartItems.map((cart)=>{
+        const totals = hotel?.map(p => p?.cartItems?.map((cart)=>{
     
             if (cart.userEmail == userEmail){
                 
-                arr.push([cart._id, cart.dt, cart.productTitle, cart.productWeight, cart.cartQuantity, cart.productPrice, cart.imageURL, cart.hotelname, cart.userEmail, p.userEmail, p.paymentstatus, p._id])
+                arr.push([cart?._id, cart?.dt, cart.productTitle, cart?.productWeight, cart?.cartQuantity, cart?.productPrice, cart?.imageURL, cart?.hotelname, cart?.userEmail, p?.userEmail, p?.paymentstatus, p?._id])
                 
                 setfOrders(arr)
                 console.log(arr, 'seller orders')
@@ -81,6 +87,8 @@ const AdminOrders=(props)=>{
         })
     
         )
+        setloading(false)
+
     }
 
     const getrole=()=>{
@@ -97,10 +105,18 @@ const AdminOrders=(props)=>{
         routeto()
         getrole()
         
+        fetchOrders()
         
         }, []);
+    useEffect(() => {
+    
+        if(hotel?.length != 0 ) { 
 
-
+          fetchOrders()
+        }
+        
+        }, [hotel]);
+       
     return (
 
       
@@ -200,66 +216,67 @@ const AdminOrders=(props)=>{
         (roleau === 'Admin' ? <Header />  : <Sheader />)
 
  }
-    <div onMouseMove={()=>fetchOrders()} style={{ backgroundColor: "", minHeight: "100vh" }}>
-    <div className="container-xxl py-5">
-      <div className={`me-lg-4`}>
-        <h2 className={`text-center pt-2 fw-bold`}>Order</h2>
-        <div className="table-responsive px-4 pt-4">
-          <table className={`table  ${classes.table}`}>
-            <thead className={classes.thead}>
-              <tr>
-                <th scope="col">S.No</th>
-                <th scope="col">Order Date</th>
-                <th scope="col">Product Id</th>
-                <th scope="col">Order ID: </th>
-                <th scope="col">Product Title </th>
-                {/* <th scope="col">Weight</th> */}
-                <th scope="col">Product Quantity</th>
-                <th scope="col">Delivery status</th>
-                <th scope="col">Product Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* {
-                Orders.map((item)=>(
-                  <OrderItem item={item}/>
-                ))
-              } */}
-            {
-                fOrders.map((element,id)=>{
-                    return(
-                        <>
-                        <tr>
-    <td valign="middle">{id + 1}</td>
-    <td valign="middle">{element[1]}</td>
-    <td valign="middle">{element[0]}</td>
-    <td  valign="middle">{element[11]}</td>
-    <td>{element[2]}</td>
-    {/* <td>{element[3]}</td> */}
-    <td>{element[4]}</td>
-    <td>{element[10]}</td>
-    <td>{element[5]}</td>
-    <td className={`${classes.item} px-2`}>
-<img src={element.imageURL}alt=""/> 
-            {/* } */}
-    </td>
-    <Link to="Edit/${element._id}">
-    <td className={classes.btn} valign="middle">{"Edit"}</td>
-
-    </Link>
-    {/* <td onClick={() => deletedata(element._id)} className={classes.btnDelete} valign="middle"><span className="pe-1">X</span>Delete</td> */}
+ {loading ?  
+ 
+ <img src={loadingimg} />
+ :
+ <div  style={{ backgroundColor: "", minHeight: "100vh" }}>
+ <div className="container-xxl py-5">
+   <div className={`me-lg-4`}>
+     <h2 className={`text-center pt-2 fw-bold`}>My Orders</h2>      
+     <div className="table-responsive px-4 pt-4">
+       <table className={`table  ${classes.table}`}>
+         <thead className={classes.thead}>
+           <tr>
+             <th scope="col">S.No</th>
+             <th scope="col">Order Date</th>
+             <th scope="col">Product Id</th>
+             <th scope="col">Order ID: </th>
+             <th scope="col">Product Title </th>
+             {/* <th scope="col">Weight</th> */}
+             <th scope="col">Product Quantity</th>
+             <th scope="col">Delivery status</th>
+             <th scope="col">Product Price</th>
+           </tr>
+         </thead>
+         <tbody>
+           {/* {
+             Orders.map((item)=>(
+               <OrderItem item={item}/>
+             ))
+           } */}
+         {
+             fOrders.map((element,id)=>{
+                 return(
+                     <>
+                     <tr>
+ <td valign="middle">{id + 1}</td>
+ <td valign="middle">{element[1]}</td>
+ <td valign="middle">{element[0]}</td>
+ <td  valign="middle">{element[11]}</td>
+ <td>{element[2]}</td>
+ {/* <td>{element[3]}</td> */}
+ <td>{element[4]}</td>
+ <td>{element[10]}</td>
+ <td>{element[5]}</td>
+ <td className={`${classes.item} px-2 img-fluid`}>
+<img src={element[6]}alt=""/> 
+         {/* } */}
+ </td>
+ 
+ {/* <td onClick={() => deletedata(element._id)} className={classes.btnDelete} valign="middle"><span className="pe-1">X</span>Delete</td> */}
 </tr>
-                        </>
-                    )
-                })
-            }
-             
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+                     </>
+                 )
+             })
+         }
+          
+         </tbody>
+       </table>
+     </div>
+   </div>
+ </div>
+</div>}
   </>
     );
 };

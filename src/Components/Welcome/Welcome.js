@@ -410,7 +410,7 @@ useEffect(() => {
 const deletedata = async (id) => {
     // http://localhost:4000/api/allpostdata
 
-    const res2 = await fetch(`/api/deletepost/${id}`, {
+    const res2 = await fetch(`https://ahmed8364.herokuapp.com/api/deletepost/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
@@ -501,7 +501,7 @@ return(
                     <div style={{ backgroundColor: "", minHeight: "100vh" }}>
         <div className="container-xxl py-5">
           <div className={`me-lg-4`}>
-            <h2 className={`text-center pt-2 fw-bold`}>Order</h2>
+            <h2 className={`text-center pt-2 fw-bold`}>All Products</h2>
             <div className="table-responsive px-4 pt-4">
               <table className={`table  ${classes.table}`}>
                 <thead className={classes.thead}>

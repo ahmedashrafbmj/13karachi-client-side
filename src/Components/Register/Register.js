@@ -162,6 +162,10 @@ const uploadImage = async e =>{
                 setAreaNameData(dataareaname);
              
             };
+            const handlesubmit  = (e)=>{
+                e.preventDefault()
+
+            }
             
  
 
@@ -170,9 +174,15 @@ return(
 <>
 
 <div className="l-form">
-            <form action="" className="form">
+            <form action="" className="form" onSubmit={(e)=>handlesubmit(e)}>
                 <h1 className="form__title">Register</h1>
 
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <div className="form__div">
                     <input type="text" className="form__input" placeholder=" "   onChange={ (e)=>{setRegister({...register, hotelname: e.target.value})} } />
                     <label className="form__label">Business Name</label>
@@ -235,7 +245,7 @@ return(
                     </select>
                 </div>
                 <div className="form__div">
-                    <input type="text" className="form__input" placeholder=" "   onChange={ (e)=>{setRegister({...register, cnic: e.target.value})} } />
+                    <input type="number" maxlength={13} className="form__input"  placeholder=" "   onChange={ (e)=>{setRegister({...register, cnic: e.target.value})} } />
                     <label className="form__label">CNIC</label>
                 </div>
 

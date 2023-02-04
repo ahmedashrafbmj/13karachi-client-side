@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Navbar, Nav, Container } from 'react-bootstrap'
-import {useHistory} from "react-router-dom";
+import {useHistory,Link} from "react-router-dom";
 
 
 
@@ -64,10 +64,20 @@ return(
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/Add">Add Products</Nav.Link>
-            <Nav.Link href="/adminProfile">Profile</Nav.Link>
-            <Nav.Link href="/adminOrders">My Orders</Nav.Link>
+           
+<Link to={"/"}>
+Home
+</Link>
+<Link to={"/Add"}>
+Add Products
+</Link>
+<Link to={"/adminProfile"}>
+Profile
+</Link>
+<Link to={"/adminOrders"}>
+My Orders
+</Link>
+           
           </Nav>
           <Nav>
         <Nav.Link onClick={logout}>Logout</Nav.Link>

@@ -346,7 +346,7 @@ const Add = (props) => {
           }])
           settotalpcount(current => [...current, productDetail.otherQty]);}
           if(othertotal  >= Number(productDetail.productQty)){
-  alert("Maximun quantity reached")
+  alert("Other Quantity not be greater than Product Quantity ")
           }
          else{  const sum = totalpcount.reduce((total, current) => total + +current, 0);
         setOtherTotal(sum+Number(productDetail.otherQty))
@@ -720,8 +720,8 @@ console.log(othertotal,"other")
                 </div>
               </div>
             )}
+            <button type="button" class="btn btn-primary mb-2"style={{align:"center"}} onClick={() => { addPost() }}>Add Product</button>
           </div>
-          <button type="button" class="btn btn-primary" onClick={() => { addPost() }}>Add Product</button>
 
         </div>
       </div>

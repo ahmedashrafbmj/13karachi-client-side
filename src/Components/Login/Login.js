@@ -6,10 +6,37 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { add } from '../../store/orderslice';
 import loadingimg from '../images/loading.gif'
+import Visibility from "@material-ui/icons/Visibility";
 
 
 
 const Login = (props) => {
+    const [toggle,Settoggle] = useState("password")
+    const [values, setValues] = useState({
+        password: "",
+        showPassword: false,
+      });
+      const handleClickShowPassword = () => {
+        setValues({ ...values, showPassword: !values.showPassword });
+      };
+      const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
+      const handlePasswordChange = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+      };
+      const Handletoggel = (e) =>{
+          if(e.target.checked) { 
+            Settoggle("text")
+
+        }
+        else{
+            Settoggle("password")
+
+        }
+
+      }
+          
 
 
     const [loading, setLoading] = useState(false);
@@ -227,16 +254,21 @@ const Login = (props) => {
                     <form action="" className="form">
                         <h1 className="form__title">Log In</h1>
 
-                        <div className="form__div">
+                        {/* <div className="form__div">
                             <input type="text" className="form__input" onChange={e => setData({ ...data, email: e.target.value })} />
                             <label className="form__label">Email</label>
-                        </div>
+                        </div> */}
+                         <div className="form__div">
+                    <input type="email" className="form__input" placeholder=" "   onChange={e => setData({ ...data, email: e.target.value })} />
+                    <label className="form__label">Email</label>
+                </div>
 
                         <div className="form__div">
-                            <input type="password" className="form__input" onChange={(e) => { setData({ ...data, password: e.target.value }) }} />
+                            <input  type={toggle} className="form__input" placeholder=" " onChange={(e) => { setData({ ...data, password: e.target.value }) }} />
                             <label className="form__label">Password</label>
                         </div>
-
+                        <input type="checkbox" onChange={(e)=>Handletoggel(e)}/>Show Password
+                       
                         <input type="button" className="form__button" value="Log In" onClick={() => { loginc(); }} />
 
                         <br />
@@ -244,12 +276,12 @@ const Login = (props) => {
                         {/* <input type="button" className="form__button" value="Register" onClick={()=>{history.push('/register')}} /> */}
 
                         <br />
-
+                        
                         {/* <input type="button" className="form__button" value="Role" onClick={()=>{getrole(); }} /> */}
-                        <h1>{data.email}</h1>
+                        {/* <h1>{data.email}</h1> */}
                         {/* <h1>{data.password}</h1> */}
 
-
+                     <span>do not have an account ?  <span style={{color:"blue",cursor:"pointer"}} onClick={()=> history.push('/register')}>Register</span></span>
                     </form>
 
 

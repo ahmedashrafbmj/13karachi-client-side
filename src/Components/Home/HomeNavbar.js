@@ -14,7 +14,10 @@ const HomeNavbar = () => {
     const [text, setText] = useState('');
     const [suggestions, setSuggestions] = useState([]);
 
-
+    const func  = () => {
+        alert("you are loging as user and you enjoy more on our app Note: Web is available onlly for sellers ")
+        window.location.href='https://play.google.com/store/apps?hl=en&gl=US';
+      }
 
 
     const items = useSelector((state) => state.cart);
@@ -55,10 +58,16 @@ const HomeNavbar = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/">Signup As User</Nav.Link>
-                            <Nav.Link href="/register">Signup As Seller</Nav.Link>
-                            <Nav.Link href="/Login">Login</Nav.Link>
+<Link to={"/"}>
+Home
+</Link>
+<Link to={"/register"}>
+Signup As Seller
+</Link>
+<Link to={"/Login"}>
+Login
+</Link>
+                            <Nav.Link onClick={()=> func()} >Signup As User</Nav.Link>
                         </Nav>
                         <Nav>
 
