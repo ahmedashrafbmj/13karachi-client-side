@@ -108,6 +108,7 @@ const Add = (props) => {
     setCategory(datacategory);
 
   };
+  console.log(category,"Category")
 
 
   useEffect(() => {
@@ -119,18 +120,18 @@ const Add = (props) => {
 
 
 
-  const fetchsubCategory = async () => {
+//   const fetchsubCategory = async () => {
 
-    const res = await fetch(`https://ahmed8364.herokuapp.com/api/getsubcategorybyname/${productDetail.productName}`);
+//     const res = await fetch(`https://ahmed8364.herokuapp.com/api/getsubcategorybyname/${productDetail.productName}`);
 
-    const datasubcategory = await res.json();
-    console.log(datasubcategory);
-    console.log(productDetail.productName, "fetchsubcat")
+//     const datasubcategory = await res.json();
+//     console.log(datasubcategory);
+//     console.log(productDetail.productName, "fetchsubcat")
 
-    setsubCategory(datasubcategory);
+//     setsubCategory(datasubcategory);
 
-  };
-
+//   };
+// console.log(subcategory,"subCategory")
 
   // const multi = multiproducts.map((prod)=>{
 
@@ -166,14 +167,17 @@ const Add = (props) => {
   const addPost = () => {
 
 
-    if (!productDetail.productName.trim()) {
+    if (!productDetail.productCategory.trim()) {
       alert("Enter Category");
     }
 
 
-    else if (!productDetail.productTitle.trim()) {
+    else if (!productDetail.productTitle.trim() && productDetail.productTitle != String ) {
       alert("Enter Title");
     }
+    // else if (productDetail.productTitle === Number ) {
+    //   alert("Title Not a Number");
+    // }
 
     else if (!productDetail.productPrice.trim()) {
       alert("Enter Price");
@@ -184,7 +188,7 @@ const Add = (props) => {
       alert("Enter Qty");
     }
 
-    else if (!productDetail.productCategory.trim()) {
+    else if (!productDetail.productName.trim()) {
       alert("Enter Description");
     }
 
@@ -435,7 +439,7 @@ console.log(othertotal,"other")
                 <div class="form-group col-md-12">
                   <label for="inputState">Select Category</label>
 
-                  <select class="form-control" onClick={() => { fetchsubCategory() }} onChange={(e) => { setproductDetail({ ...productDetail, productName: e.target.value }) }} >
+                  <select class="form-control"  onChange={(e) => { setproductDetail({ ...productDetail, productCategory: e.target.value }) }} >
 
                     <option selected>Choose...</option>
                     {category.map((category) => (
@@ -564,7 +568,7 @@ console.log(othertotal,"other")
 
               <div class="form-group">
                 <label for="inputAddress">Product Description</label>
-                <input type="text" class="form-control" onClick={() => { lastRecord() }} placeholder="" onChange={(e) => { setproductDetail({ ...productDetail, productCategory: e.target.value }) }} />
+                <input type="text" class="form-control" onClick={() => { lastRecord() }} placeholder="" onChange={(e) => { setproductDetail({ ...productDetail, productName: e.target.value }) }} />
               </div>
 
 
@@ -720,7 +724,7 @@ console.log(othertotal,"other")
                 </div>
               </div>
             )}
-            <button type="button" class="btn btn-primary mb-2"style={{align:"center"}} onClick={() => { addPost() }}>Add Product</button>
+            <button type="button" class="btn btn-primary mb-5"style={{align:"center"}} onClick={() => { addPost() }}>Add Product</button>
           </div>
 
         </div>
