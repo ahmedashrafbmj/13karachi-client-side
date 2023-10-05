@@ -34,7 +34,8 @@ return(
 
 
 <br />
-<Provider store={store}>
+<img src="https://www.nopcommerce.com/images/thumbs/0005720_coming-soon-page_550.jpeg" className="img-fluid"/>
+{/* <Provider store={store}>
 <BrowserRouter>
 
 
@@ -43,8 +44,8 @@ return(
     
     </BrowserRouter>
 
+    </Provider> */}
     {/* <Footer /> */}
-    </Provider>
 </>
 
 
